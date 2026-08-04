@@ -86,8 +86,9 @@ class JapaneseConceptPagesTest(unittest.TestCase):
     def test_health_uses_the_zip_8c_confirmed_design(self):
         html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
         self.assertIn("コンセプトA · 確定案（9aデザインシステム適用）", html)
-        self.assertIn("これからはオディが数えます。", html)
-        self.assertIn("噛んだ回数・食事の速さ・リズムを自動で記録し", html)
+        self.assertIn("これからはオディが", html)
+        self.assertIn("数えます。", html)
+        self.assertIn("噛んだ回数・速さ・リズムを", html)
         self.assertNotIn("噛み方タイプ診断型", html)
 
     def test_both_live_pages_are_fully_japanese(self):
@@ -95,6 +96,26 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             with self.subTest(concept=concept):
                 html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
                 self.assertIsNone(re.search(r"[가-힣]", html))
+
+    def test_both_pages_share_mobile_safe_motion_and_line_groups(self):
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertIn("opacity:.15", html)
+                self.assertIn("translateY(22px)", html)
+                self.assertIn("1400ms cubic-bezier(.25,.1,.25,1)", html)
+                self.assertIn("@keyframes hero-float", html)
+                self.assertIn("7s ease-in-out infinite", html)
+                self.assertIn("@keyframes cta-breathe", html)
+                self.assertIn("5s ease-in-out infinite", html)
+                self.assertIn("prefers-reduced-motion:reduce", html)
+                self.assertIn("threshold:.08", html)
+                self.assertIn("rootMargin:'0px 0px -4% 0px'", html)
+                self.assertIn('class="semantic-line"', html)
+                self.assertIn("word-break:auto-phrase", html)
+                self.assertIn('class="token"', html)
+                self.assertGreaterEqual(html.count('class="support-line"'), 4)
+                self.assertNotIn("transition:all", html)
 
     def test_airbridge_sdk_and_events_are_concept_specific(self):
         for concept in self.CASES:
