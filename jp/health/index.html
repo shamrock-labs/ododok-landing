@@ -3,101 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>オディ｜あなたの噛み方は、何タイプ？</title>
+<title>オディ｜噛んだ回数と食事リズムを自動記録</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-body{--jp:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
-*{box-sizing:border-box}html,body{margin:0}body{background:#E9E1D7;font-family:"Noto Sans JP",sans-serif}.page{width:100%;max-width:480px;margin:0 auto;background:#FAF7F2;overflow:hidden}.page>div>div:not(:last-child){transition:opacity .65s ease,transform .65s ease}.reveal{opacity:0;transform:translateY(22px)}.reveal.is-visible{opacity:1;transform:none}.hero-float{animation:hero-float 4s ease-in-out infinite}a[href^="https://go.ododok.app/"]{animation:cta-pulse 2.8s ease-in-out infinite;transition:transform .15s ease;cursor:pointer}a[href^="https://go.ododok.app/"]:active{transform:scale(.97)}@keyframes hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes cta-pulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.07)}}@media(prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
+<style>*{box-sizing:border-box}html,body{margin:0;padding:0}body{--jp:'Noto Sans JP',sans-serif;background:#F5EDE0}a{color:#9C6E47;text-decoration:none}[id="8c"]{width:100%!important;max-width:430px;margin:0 auto;gap:0!important}[id="8c"]>div:first-child{display:none!important}[id="8c"]>div:nth-child(2){width:100%!important}img{max-width:100%}@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}</style>
+<script>
+(function(a_,i_,r_,_b,_r,_i,_d,_g,_e){function q(b,a){function d(){var l=x(b,a);y(l)}if(0<_g){var e,f=new (null!=(e=a_.XDomainRequest)?e:a_.XMLHttpRequest);e=function(){};f.open("GET",a);f.timeout=_g;f.onload=d;f.onerror=e;f.onprogress=e;f.ontimeout=e;f.send()}else d()}function y(b){if("complete"===i_.readyState)i_.head.appendChild(b);else{var a=function(){a_.removeEventListener("load",a);i_.head.appendChild(b)};a_.addEventListener("load",a)}}function x(b,a){var d=i_.createElement(r_);d.async=!0;d.src=a;d.onerror=function(){return z(b)};return d}function z(b){b.queue.filter(function(a){return 0<=_d.indexOf(a[0])}).forEach(function(a){a=a[1];a=a[a.length-1];"function"===typeof a&&a("Failed to load Airbridge SDK.")})}function r(b){var a={queue:null!=b?b:[],get isSDKEnabled(){return!1}};_i.concat(_d).forEach(function(d){var e=d.split("."),f=e.pop();e.reduce(function(l,t){var u;return l[t]=null!=(u=l[t])?u:{}},a)[f]=function(){a.queue.push([d,arguments])}});return a}null!=a_.__AIRBRIDGE__||(a_.__AIRBRIDGE__={mocks:[]});"undefined"!==typeof i_.documentMode&&(_r=_r.replace(/^https:/,""));a_.createAirbridge=function(){var b=r(),a;null==(a=a_.__AIRBRIDGE__)||a.mocks.push(b);q(b,_r);return b};a_[_b]||(_e=r(_e),a_[_b]=_e,q(_e,_r))})(window,document,"script","airbridge","https://static.airbridge.io/sdk/latest/airbridge.min.js","init startTracking stopTracking openBanner setBanner setDownload setDownloads openDeeplink setDeeplinks sendWeb setUserAgent setMobileAppData setUserID clearUserID setUserEmail clearUserEmail setUserPhone clearUserPhone setUserAttribute removeUserAttribute clearUserAttributes setUserAlias removeUserAlias clearUserAlias clearUser setUserId setUserAttributes addUserAlias setDeviceAlias removeDeviceAlias clearDeviceAlias setDeviceIFV setDeviceIFA setDeviceGAID events.send events.signIn events.signUp events.signOut events.purchased events.addedToCart events.productDetailsViewEvent events.homeViewEvent events.productListViewEvent events.searchResultViewEvent".split(" "),["events.wait","fetchResource","createTouchpoint","createTrackingLink"],0);
+</script>
+<script>airbridge.init({app:"ododokdev",webToken:"91ab8c64de7f471b976cc23aedf1ee26",utmParsing:true});</script>
 </head>
 <body>
-<main class="page">
-    <div style="position:relative;width:100%;background:#FAF7F2;overflow:hidden;color:#2D2418;">
-      <div style="position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(255,247,235,0.95);backdrop-filter:blur(8px);">
-        <div style="display:flex;align-items:center;gap:8px;font:900 19px var(--jp);">
-          <img src="../assets/daram-trim.png" alt="" style="width:38px;height:24px;object-fit:contain;">オディ
-        </div>
-        <a href="https://go.ododok.app/7ueukr" target="_blank" rel="noopener" style="display:block;text-decoration:none;background:#06C755;color:#FFFFFF;font:700 14px var(--jp);padding:12px 18px;border-radius:100px;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>友だち追加</span></a>
+<main><div id="8c" data-source-section="8c" style="display:flex;flex-direction:column;gap:20px;width:430px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div style="background:#2A211B;color:#FAF7F2;font:900 20px 'Pretendard Variable',Pretendard,sans-serif;padding:8px 16px;border-radius:8px;">8c</div>
+      <div style="font:700 18px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">コンセプトA · 確定案（9aデザインシステム適用）</div>
+    </div>
+    <div style="position:relative;width:430px;background:#FFFDF8;overflow:hidden;">
+
+      <div data-reveal="1" style="position:relative;padding:30px 24px 0;background:#FFF7EB;text-align:center;">
+        <div style="font:900 13px 'Pretendard Variable',Pretendard,sans-serif;letter-spacing:0.14em;color:#C2703A;">早食いの習慣、気づいていますよね</div>
+        <h1 style="margin:12px 0 0;font:900 38px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.34;letter-spacing:-0.03em;">いま、何回噛んだっけ？<br>これからはオディが数えます。</h1>
+        <img src="../assets/app-report.png" alt="" style="width:206px;height:auto;display:block;margin:18px auto 14px;">
+        <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;"><div style="display:inline-flex;align-items:center;gap:6px;background:#F7B93F;color:#2A211B;border:3px solid #2A211B;font:900 15px 'Pretendard Variable',Pretendard,sans-serif;padding:11px 16px;border-radius:10px;">いつものAirPodsだけ</div><div style="display:inline-flex;align-items:center;gap:6px;background:#FFFFFF;color:#2A211B;border:3px solid #2A211B;font:900 15px 'Pretendard Variable',Pretendard,sans-serif;padding:11px 16px;border-radius:10px;">追加デバイス0円</div></div>
+        <p style="margin:14px 0 0;font:500 16px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.9;color:#5C4F3E;text-wrap:pretty;">噛んだ回数・食事の速さ・リズムを自動で記録し、食事が終わるとレポートにまとめて表示します。</p>
+
+
+        <div style="margin-top:22px;padding-bottom:22px;"><a data-line-cta data-cta-position="cta_1" href="https://go.ododok.app/7ueukr" style="display:block;text-decoration:none;background:#06C755;color:#FFFFFF;border:3px solid #2A211B;box-shadow:5px 5px 0 #2A211B;font:900 17px 'Pretendard Variable',Pretendard,sans-serif;padding:18px;border-radius:100px;text-align:center;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで友だち追加</span></a></div>
       </div>
 
-      <div style="padding:30px 24px 0;background:radial-gradient(120% 60% at 50% 0%, #FAF7F2 0%, #F5E2C8 100%);text-align:center;">
-        <div style="display:inline-block;background:#9C6E47;color:#FAF7F2;font:900 13px var(--jp);letter-spacing:0.08em;padding:9px 16px;border-radius:100px;">1食で、無料診断</div>
-        <h1 style="margin:16px 0 0;font:900 38px var(--jp);line-height:1.34;letter-spacing:-0.03em;">あなたの噛み方は、<br><span style="color:#9C6E47;">何タイプ？</span></h1>
-        <p style="margin:14px 0 0;font:500 16px var(--jp);line-height:1.9;color:#8C7B66;text-wrap:pretty;">AirPodsをつけて1食たべるだけ。噛む回数と速さから、あなたの食べ方タイプを診断します。</p>
-        <img class="hero-float" src="../assets/daram-trim.png" alt="" style="width:240px;height:151px;object-fit:contain;display:block;margin:18px auto 0;">
-        <a href="https://go.ododok.app/7ueukr" target="_blank" rel="noopener" style="display:block;text-decoration:none;margin-top:8px;background:#06C755;color:#FFFFFF;font:900 17px var(--jp);padding:18px;border-radius:100px;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで友だち追加して診断</span></a>
-        <div style="margin-top:10px;padding-bottom:34px;font:500 13px var(--jp);color:#5C4F3E;">所要：いつもの食事1回ぶん</div>
-      </div>
-
-      <div style="padding:44px 24px;">
-        <div style="text-align:center;font:900 26px var(--jp);">3つのタイプ、どれ？</div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;">
-          <div style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:22px;padding:20px;">
-            <div style="flex:none;width:64px;height:64px;border-radius:100px;background:#F5E2C8;display:flex;align-items:center;justify-content:center;font:900 22px var(--jp);color:#9C6E47;">速</div>
+      <div data-reveal="1" style="padding:40px 24px 46px;background:#FFFDF8;">
+        <div style="text-align:center;font:900 27px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.42;">早食いが気になる理由。</div>
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-end;gap:10px;">
+            <img src="../assets/daram-spoon.png" alt="" style="flex:none;width:56px;height:auto;">
             <div style="flex:1;">
-              <div style="font:900 19px var(--jp);">かけこみタイプ</div>
-              <div style="margin-top:6px;font:500 14px var(--jp);line-height:1.7;color:#8C7B66;">10分以内で完食。満腹サインが追いつきません。</div>
+              <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;margin-bottom:5px;">オディ</div>
+              <div style="display:inline-block;max-width:250px;background:#FFFFFF;border:2px solid #2A211B;border-radius:20px;padding:15px 17px;font:700 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.7;">こんにちは、リスのオディです。早く食べると、満腹のサインに気づくのが遅れがちです。</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:22px;padding:20px;">
-            <div style="flex:none;width:64px;height:64px;border-radius:100px;background:#FCF1D2;display:flex;align-items:center;justify-content:center;font:900 22px var(--jp);color:#C9912E;">波</div>
-            <div style="flex:1;">
-              <div style="font:900 19px var(--jp);">むらタイプ</div>
-              <div style="margin-top:6px;font:500 14px var(--jp);line-height:1.7;color:#8C7B66;">日によって噛む回数がバラバラ。夜だけ早食い。</div>
+          <div style="display:flex;align-items:flex-end;gap:10px;flex-direction:row-reverse;">
+            <div style="flex:none;width:36px;height:36px;border-radius:100px;background:#E3D2B8;"></div>
+            <div style="flex:1;display:flex;justify-content:flex-end;">
+              <div style="display:inline-block;max-width:250px;background:#F7B93F;border:2px solid #2A211B;border-radius:20px;padding:15px 17px;font:700 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.7;text-align:left;">直したいけど、なかなか続かなくて。</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:22px;padding:20px;border:2px solid #4A8E66;">
-            <div style="flex:none;width:64px;height:64px;border-radius:100px;background:#EDF6EE;display:flex;align-items:center;justify-content:center;font:900 22px var(--jp);color:#4A8E66;">◎</div>
+          <div style="display:flex;align-items:flex-end;gap:10px;">
+            <img src="../assets/daram-spoon.png" alt="" style="flex:none;width:56px;height:auto;">
             <div style="flex:1;">
-              <div style="font:900 19px var(--jp);">じっくりタイプ</div>
-              <div style="margin-top:6px;font:500 14px var(--jp);line-height:1.7;color:#8C7B66;">1食1,000回以上。ポイントもいちばん貯まります。</div>
+              <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;margin-bottom:5px;">オディ</div>
+              <div style="display:inline-block;max-width:250px;background:#FFFFFF;border:2px solid #2A211B;border-radius:20px;padding:15px 17px;font:700 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.7;">自分で数えるのは大変ですよね。私が数えます。</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div style="padding:44px 24px;background:#FFFFFF;text-align:center;">
-        <div style="font:900 26px var(--jp);line-height:1.4;">診断のあとは、<br>レポートで答え合わせ。</div>
-        <div style="margin-top:12px;font:500 16px var(--jp);line-height:1.85;color:#8C7B66;text-wrap:pretty;">回数・速さ・噛み比率・食事時間を100点満点でスコア化。次に何を変えればいいかまでわかります。</div>
-        <img src="../assets/jp-report.png" alt="" loading="lazy" decoding="async" style="width:250px;height:auto;display:block;margin:22px auto -40px;">
-      </div>
+      <div data-reveal="1" style="position:relative;padding:44px 24px 46px;background:#FFF7EB;">
 
-      <div style="padding:44px 24px;">
-        <div style="text-align:center;font:900 26px var(--jp);line-height:1.4;">タイプが変われば、<br><span style="color:#9C6E47;">貯まる額も変わる。</span></div>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;background:#FFFFFF;border-radius:16px;padding:18px 20px;">
-            <span style="font:700 15px var(--jp);color:#8C7B66;">かけこみタイプ</span>
-            <span style="font:900 20px var(--jp);color:#8C7B66;">1食 約45円</span>
+        <div style="text-align:center;font:900 27px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.42;">追加費用0円で、測定から分析まで。</div>
+
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="position:relative;background:#FFFFFF;border:3px solid #2A211B;border-radius:14px;padding:24px 22px;box-shadow:6px 6px 0 #2A211B;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="flex:none;width:40px;height:40px;border-radius:100px;background:#2A211B;color:#F7B93F;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;display:flex;align-items:center;justify-content:center;">01</div>
+              <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">つけて食べる</div>
+            </div>
+            <div style="margin-top:12px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">お手持ちのAirPodsで始められます。新しいデバイスは必要ありません。</div>
           </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;background:#FFFFFF;border-radius:16px;padding:18px 20px;">
-            <span style="font:700 15px var(--jp);color:#8C7B66;">むらタイプ</span>
-            <span style="font:900 20px var(--jp);color:#8C7B66;">1食 約80円</span>
+          <div style="position:relative;background:#FFFFFF;border:3px solid #2A211B;border-radius:14px;padding:24px 22px;box-shadow:6px 6px 0 #2A211B;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="flex:none;width:40px;height:40px;border-radius:100px;background:#2A211B;color:#F7B93F;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;display:flex;align-items:center;justify-content:center;">02</div>
+              <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">よく噛む</div>
+            </div>
+            <div style="margin-top:12px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">食べるペースが速いとオディがお知らせ。画面を見ていなくても測定します。</div>
           </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;background:#2D2418;border-radius:16px;padding:18px 20px;">
-            <span style="font:900 15px var(--jp);color:#FAF7F2;">じっくりタイプ</span>
-            <span style="font:900 22px var(--jp);color:#E8B055;">1食 最大120円</span>
+          <div style="position:relative;background:#FFFFFF;border:3px solid #2A211B;border-radius:14px;padding:24px 22px;box-shadow:6px 6px 0 #2A211B;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="flex:none;width:40px;height:40px;border-radius:100px;background:#2A211B;color:#F7B93F;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;display:flex;align-items:center;justify-content:center;">03</div>
+              <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">レポートを受け取る</div>
+            </div>
+            <div style="margin-top:12px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">食事が終わると、速さ・噛み方・食事時間をまとめて表示。習慣を振り返るきっかけになります。</div>
           </div>
         </div>
-        <div style="margin-top:12px;text-align:center;font:500 12px var(--jp);color:#5C4F3E;">※ 獲得量は食事の習慣によって異なります。1日の上限は300どんぐり＝300円です。</div>
       </div>
 
-      <div style="padding:44px 24px 24px;background:linear-gradient(180deg,#F5E2C8 0%,#FAF7F2 100%);text-align:center;">
-        <div style="font:900 30px var(--jp);line-height:1.4;">まずは1食、<br>診断してみる。</div>
-        <div style="margin-top:10px;font:500 15px var(--jp);color:#8C7B66;">友だち追加は無料・30秒</div>
-        <img src="../assets/jp-home.png" alt="" loading="lazy" decoding="async" style="width:250px;height:auto;display:block;margin:18px auto -50px;filter:drop-shadow(0 20px 34px rgba(150,100,50,0.24));">
+      <div data-reveal="1" style="padding:46px 24px;background:#2A211B;">
+        <div style="text-align:center;font:900 27px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;line-height:1.42;">急いで食べた日は<br>からだが先に気づきます。</div>
+        <div style="margin-top:12px;text-align:center;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.85;color:#C2B6A4;text-wrap:pretty;">同じ食事でも、ゆっくり長く噛むと満腹のサインを感じやすくなります。<br>目安はひと口30回です。</div>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:#FFFFFF;border:3px solid #2A211B;border-radius:12px;">
+            <div style="flex:1;font:700 15px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">急いで食べた日</div>
+            <div style="font:700 14px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">ひと口12回</div>
+            <div style="width:88px;text-align:right;font:900 20px 'Pretendard Variable',Pretendard,sans-serif;color:#C2703A;">もう少し</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:#FFFFFF;border:3px solid #2A211B;border-radius:12px;">
+            <div style="flex:1;font:700 15px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">ふつうの速さ</div>
+            <div style="font:700 14px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">ひと口21回</div>
+            <div style="width:88px;text-align:right;font:900 20px 'Pretendard Variable',Pretendard,sans-serif;color:#C2703A;">標準です</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;background:#F7B93F;border:3px solid #2A211B;border-radius:12px;">
+            <div style="flex:1;font:700 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">よく噛んだ日</div>
+            <div style="font:700 14px 'Pretendard Variable',Pretendard,sans-serif;color:#8A4A1E;">ひと口32回</div>
+            <div style="width:88px;text-align:right;font:900 20px 'Pretendard Variable',Pretendard,sans-serif;color:#C2703A;">とても良い</div>
+          </div>
+        </div>
+        <div style="margin-top:24px;padding:22px 18px 18px;background:#1F1813;border-radius:20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 2px 16px;">
+            <div style="font:700 13px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">今週の平均咀嚼</div>
+            <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#F7B93F;">一食620回</div>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">480</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:68px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">月</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">760</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:125px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">火</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">390</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:51px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">水</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">700</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:108px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">木</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">820</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:136px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">金</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">540</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:80px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">土</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font:900 11px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">450</div>
+            <div style="width:100%;height:150px;background:#7A4A22;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;">
+              <div style="width:100%;height:63px;background:#F7B93F;"></div>
+            </div>
+            <div style="font:700 12px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;">日</div>
+          </div>
+          </div>
+
+        </div>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:12px;padding:14px 18px;background:#7A4A22;border-radius:16px;">
+          <img src="../assets/daram-trim.png" alt="" style="flex:none;width:52px;height:auto;">
+          <div style="font:900 15px 'Pretendard Variable',Pretendard,sans-serif;color:#F7B93F;line-height:1.6;">この習慣を1か月続けると、<br>食事時間が5分長くなります。</div>
+        </div>
+        <div style="margin-top:12px;text-align:center;font:500 12px 'Pretendard Variable',Pretendard,sans-serif;color:#C2B6A4;">※ レポートの数値は食事習慣によって異なります</div>
       </div>
 
-      <div style="padding:70px 24px 24px;background:#2D2418;color:#8C7B66;font:500 13px var(--jp);display:flex;flex-direction:column;gap:8px;align-items:center;">
+
+
+
+
+      <div data-reveal="1" style="padding:44px 24px;background:#FFF7EB;">
+        <div style="text-align:center;font:900 24px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">よくある質問</div>
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:10px;">
+          <div style="background:#FFFFFF;border:3px solid #2A211B;border-radius:12px;padding:20px;box-shadow:5px 5px 0 #2A211B;">
+            <div style="font:900 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">AirPodsだけでいいの？</div>
+            <div style="margin-top:8px;font:500 14px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">はい。専用デバイスを購入せず、お手持ちのAirPodsで噛んだ回数を数えます。</div>
+          </div>
+          <div style="background:#FFFFFF;border:3px solid #2A211B;border-radius:12px;padding:20px;box-shadow:5px 5px 0 #2A211B;">
+            <div style="font:900 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">噛んだ回数はどう数えるの？</div>
+            <div style="margin-top:8px;font:500 14px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">AirPodsの動きから顎の咀嚼動作を認識します。音声は録音しません。</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div data-reveal="1" style="padding:46px 24px;text-align:center;background:#FFFDF8;">
+        <div style="font:900 29px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.4;">今日の一食から、<br>追加費用なしで始めよう。</div>
+        <div style="margin-top:10px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">友だち追加は無料 · 30秒</div>
+      </div>
+      <div data-reveal="1" style="padding:6px 24px 44px;background:#FFFDF8;"><a data-line-cta data-cta-position="cta_2" href="https://go.ododok.app/7ueukr" style="display:block;text-decoration:none;background:#06C755;color:#FFFFFF;border:3px solid #2A211B;box-shadow:5px 5px 0 #2A211B;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;padding:18px;border-radius:100px;text-align:center;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで友だち追加</span></a></div>
+      <div data-reveal="1" style="padding:24px;background:#2A211B;color:#C2B6A4;font:500 13px 'Pretendard Variable',Pretendard,sans-serif;display:flex;flex-direction:column;gap:8px;align-items:center;">
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-start;width:100%;font:500 12px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.7;color:#8C7B66;">
+          <span>※ AirPodsが必要です</span>
+          <span>※ レポートの数値は食事習慣によって異なります</span>
+        </div>
         <span>利用規約　プライバシーポリシー　お問い合わせ</span><span>© 2026 Odi</span>
       </div>
 
-      <div style="position:sticky;bottom:0;z-index:9;display:flex;padding:14px 20px 18px;background:rgba(255,247,235,0.95);backdrop-filter:blur(8px);border-top:1px solid #F2EDE5;">
-        <a href="https://go.ododok.app/7ueukr" target="_blank" rel="noopener" style="display:block;text-decoration:none;flex:1;background:#06C755;color:#FFFFFF;font:900 16px var(--jp);padding:16px;border-radius:100px;text-align:center;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで友だち追加して診断</span></a>
-      </div>
     </div>
-</main>
-<script>const sections=[...document.querySelectorAll(".page>div>div:not(:last-child)")];sections.slice(1).forEach(s=>s.classList.add("reveal"));if("IntersectionObserver" in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");o.unobserve(e.target)}}),{threshold:.12});sections.slice(1).forEach(s=>o.observe(s))}else sections.forEach(s=>s.classList.add("is-visible"));</script>
+  </div></main>
+<script>
+(()=>{
+  const concept="health";
+  const params=new URLSearchParams(location.search);
+  const attribution={utm_source:params.get("utm_source")||"",utm_medium:params.get("utm_medium")||"",utm_campaign:params.get("utm_campaign")||"",utm_content:params.get("utm_content")||"",utm_term:params.get("utm_term")||""};
+  const attributes=extra=>({concept: "health",page_path:location.pathname,...attribution,...extra});
+  airbridge.events.send("jp_landing_viewed",{action:"view",label:concept,customAttributes:attributes({cta_position:"none"})});
+  document.querySelectorAll("[data-line-cta]").forEach(cta=>cta.addEventListener("click",event=>{event.preventDefault();const destination=cta.href;let navigated=false;const navigate=()=>{if(navigated)return;navigated=true;location.assign(destination)};const fallback=setTimeout(navigate,1200);airbridge.events.send("jp_line_cta_clicked",{action:"click",label:cta.dataset.ctaPosition,customAttributes:attributes({cta_position:cta.dataset.ctaPosition})});try{airbridge.events.wait(1000,()=>{clearTimeout(fallback);navigate()})}catch(error){clearTimeout(fallback);navigate()}}));
+  const show=(el,animate)=>{el.style.transition=animate?'opacity 620ms cubic-bezier(.2,.7,.2,1), transform 620ms cubic-bezier(.2,.7,.2,1)':'none';el.style.opacity='1';el.style.transform='none'};
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting||entry.boundingClientRect.bottom<=0){show(entry.target,entry.isIntersecting);observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('[data-reveal="1"]').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.willChange='opacity, transform';observer.observe(el)})}else document.querySelectorAll('[data-reveal="1"]').forEach(el=>show(el,false));
+})();
+</script>
 </body>
 </html>
