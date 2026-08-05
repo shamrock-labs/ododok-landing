@@ -140,6 +140,60 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertIn("cta_position", html)
                 self.assertIn("utm_source", html)
 
+    def test_meta_pixel_base_code_is_installed_on_both_pages(self):
+        """Catches a concept page that ships without PageView tracking."""
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertIn("connect.facebook.net/en_US/fbevents.js", html)
+                self.assertIn("fbq('init',", html)
+                self.assertIn("fbq('track','PageView')", html)
+                self.assertIn("https://www.facebook.com/tr?id=", html)
+                self.assertLess(html.index("fbq('init',"), html.index("fbq('track','PageView')"))
+                self.assertNotIn('<script src="https://connect.facebook.net', html)
+
+    def test_meta_pixel_id_is_real_and_identical_everywhere(self):
+        """Catches a placeholder reaching production or an ID that drifts between the four copies."""
+        found = []
+        for concept in self.CASES:
+            html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+            found += re.findall(r"fbq\('init','([^']+)'\)", html)
+            found += re.findall(r"facebook\.com/tr\?id=([^&\"]+)&", html)
+        self.assertEqual(len(found), 4, f"expected two pixel ID references per page, got {found}")
+        self.assertEqual(len(set(found)), 1, f"pixel ID differs between copies: {sorted(set(found))}")
+        # Meta object IDs have grown over time; bound the shape loosely, not to a fixed width.
+        self.assertRegex(
+            found[0],
+            r"^\d{15,20}$",
+            "Replace __META_PIXEL_ID__ with the real numeric Meta pixel ID in both concept pages.",
+        )
+
+    def test_line_cta_reports_a_meta_lead_without_blocking_navigation(self):
+        """Catches a pixel call that can throw into the LINE handoff or lose CAPI deduplication."""
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertIn('try{fbq("track","Lead"', html)
+                self.assertEqual(html.count('fbq("track","Lead"'), 1)
+                self.assertIn("eventID:eventId", html)
+                self.assertIn("event_id:eventId", html)
+                # The navigation fallback must be armed before any tracking call can throw.
+                self.assertLess(
+                    html.index("setTimeout(navigate,1200)"), html.index('fbq("track","Lead"')
+                )
+                # The pixel reuses the existing wait window instead of adding its own delay.
+                self.assertLess(
+                    html.index('fbq("track","Lead"'), html.index("airbridge.events.wait")
+                )
+
+    def test_jp_root_router_stays_free_of_tracking(self):
+        """Catches a pixel on the router, which would double-count PageView and slow the redirect."""
+        html = (ROOT / "jp" / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("fbq", html)
+        self.assertNotIn("facebook", html)
+        # fbclid must survive the redirect so _fbc is attributed on the concept page.
+        self.assertNotIn('params.delete("fbclid")', html)
+
     def test_jp_root_is_a_stable_concept_router(self):
         """Catches regressions that expose the old point page or re-bucket on refresh."""
         html = (ROOT / "jp" / "index.html").read_text(encoding="utf-8")
