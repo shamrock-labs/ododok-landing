@@ -140,6 +140,24 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertIn("cta_position", html)
                 self.assertIn("utm_source", html)
 
+    def test_jp_root_is_a_stable_concept_router(self):
+        """Catches regressions that expose the old point page or re-bucket on refresh."""
+        html = (ROOT / "jp" / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn('const EXPERIMENT_ID = "jp_concept_v1"', html)
+        self.assertIn('const VARIANTS = ["health", "point"]', html)
+        self.assertIn('localStorage.getItem(STORAGE_KEY)', html)
+        self.assertIn('localStorage.setItem(STORAGE_KEY, variant)', html)
+        self.assertIn('globalThis.crypto.getRandomValues', html)
+        self.assertIn('params.get("variant")', html)
+        self.assertIn('params.delete("variant")', html)
+        self.assertIn('params.set("experiment_variant", variant)', html)
+        self.assertIn('params.set("assignment_source", assignmentSource)', html)
+        self.assertIn('location.replace(destination.href)', html)
+        self.assertIn('href="./health/"', html)
+        self.assertIn('href="./point/"', html)
+        self.assertNotIn("どんぐり1個 = 1円", html)
+
 
 if __name__ == "__main__":
     unittest.main()
