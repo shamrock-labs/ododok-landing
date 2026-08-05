@@ -140,6 +140,32 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertIn("cta_position", html)
                 self.assertIn("utm_source", html)
 
+    def test_amplitude_tracks_the_concept_funnel_without_duplicate_pageviews(self):
+        sdk = (ROOT / "jp" / "assets" / "amplitude.js").read_text(encoding="utf-8")
+        self.assertIn("cdn.amplitude.com/script/", sdk)
+        self.assertIn('serverZone: "US"', sdk)
+        self.assertIn("sessionReplay.plugin({ sampleRate: 1 })", sdk)
+        self.assertIn("pageViews: false", sdk)
+        self.assertIn("elementInteractions: true", sdk)
+        self.assertIn("frustrationInteractions: true", sdk)
+        self.assertIn('window.addEventListener("pagehide"', sdk)
+        self.assertIn('window.amplitude.setTransport("beacon")', sdk)
+
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertIn('<script src="../assets/amplitude.js"></script>', html)
+                self.assertIn('trackAmplitude("jp_landing_viewed"', html)
+                self.assertIn('trackAmplitude("jp_line_cta_clicked"', html)
+                self.assertIn('trackAmplitude("jp_section_viewed"', html)
+                self.assertIn('experiment_id:"jp_concept_v1"', html)
+                self.assertIn("experiment_variant", html)
+                self.assertIn("assignment_source", html)
+                self.assertIn('environment=["ododok.app","www.ododok.app"]', html)
+                self.assertIn('params.get("analytics_debug")==="1"', html)
+                self.assertGreaterEqual(html.count("data-analytics-section="), 6)
+                self.assertIn("Promise.allSettled([amplitudeFlush,airbridgeFlush])", html)
+
     def test_jp_root_is_a_stable_concept_router(self):
         """Catches regressions that expose the old point page or re-bucket on refresh."""
         html = (ROOT / "jp" / "index.html").read_text(encoding="utf-8")
