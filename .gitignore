@@ -1,0 +1,9 @@
+# Python (테스트 실행 시 생성)
+__pycache__/
+*.py[cod]
+
+# OMC 로컬 상태
+.omc/
+
+# macOS
+.DS_Store
