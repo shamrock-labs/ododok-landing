@@ -7,7 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>*{box-sizing:border-box}html,body{margin:0;padding:0}body{--jp:'Noto Sans JP',sans-serif;background:#F5EDE0}a{color:#9C6E47;text-decoration:none}[id="8c"]{width:100%!important;max-width:430px;margin:0 auto;gap:0!important}[id="8c"]>div:first-child{display:none!important}[id="8c"]>div:nth-child(2){width:100%!important}img{max-width:100%}@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}.hero-title{font-size:clamp(25px,7.8vw,34px)!important;line-height:1.38!important;letter-spacing:-.035em!important}.semantic-line{display:block;white-space:nowrap}.balanced-heading{font-size:clamp(24px,7.2vw,27px)!important;line-height:1.45!important}.final-heading{font-size:clamp(25px,7.8vw,29px)!important;line-height:1.45!important}.motion-ready{opacity:.15;transform:translateY(22px)}.motion-visible{opacity:1;transform:translateY(0);transition:opacity 1400ms cubic-bezier(.25,.1,.25,1),transform 1400ms cubic-bezier(.25,.1,.25,1)}.hero-visual{animation:hero-float 7s ease-in-out infinite;will-change:transform}[data-line-cta]{animation:cta-breathe 5s ease-in-out infinite;transform-origin:center;will-change:transform,filter}[data-line-cta]:active{animation:none;transform:translateY(2px) scale(.985);filter:brightness(.96)}@keyframes hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes cta-breathe{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.012);filter:brightness(1.055)}}@media(prefers-reduced-motion:reduce){.motion-ready,.motion-visible{opacity:1!important;transform:none!important;transition:none!important}.hero-visual,[data-line-cta]{animation:none!important;transform:none!important;filter:none!important}}.jp-copy{word-break:normal;overflow-wrap:break-word;line-break:strict;text-wrap:pretty}.token,.support-line{white-space:nowrap}.hero-support{font-size:clamp(14px,4.35vw,16px)!important}@supports(word-break:auto-phrase){.jp-copy{word-break:auto-phrase}}</style>
+<style>*{box-sizing:border-box}html,body{margin:0;padding:0}body{--jp:'Noto Sans JP',sans-serif;background:#F5EDE0;padding-bottom:calc(94px + env(safe-area-inset-bottom))}a{color:#9C6E47;text-decoration:none}[id="8c"]{width:100%!important;max-width:430px;margin:0 auto;gap:0!important}[id="8c"]>div:first-child{display:none!important}[id="8c"]>div:nth-child(2){width:100%!important}img{max-width:100%}@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}.hero-title{font-size:clamp(25px,7.8vw,34px)!important;line-height:1.38!important;letter-spacing:-.035em!important}.semantic-line{display:block;white-space:nowrap}.balanced-heading{font-size:clamp(24px,7.2vw,27px)!important;line-height:1.45!important}.final-heading{font-size:clamp(25px,7.8vw,29px)!important;line-height:1.45!important}.motion-ready{opacity:.15;transform:translateY(22px)}.motion-visible{opacity:1;transform:translateY(0);transition:opacity 1400ms cubic-bezier(.25,.1,.25,1),transform 1400ms cubic-bezier(.25,.1,.25,1)}.hero-visual{animation:hero-float 7s ease-in-out infinite;will-change:transform}[data-line-cta]{animation:cta-breathe 5s ease-in-out infinite;transform-origin:center;will-change:transform,filter}[data-line-cta]:active{animation:none;transform:translateY(2px) scale(.985);filter:brightness(.96)}@keyframes hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes cta-breathe{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.012);filter:brightness(1.055)}}@media(prefers-reduced-motion:reduce){.motion-ready,.motion-visible{opacity:1!important;transform:none!important;transition:none!important}.hero-visual,[data-line-cta]{animation:none!important;transform:none!important;filter:none!important}}.jp-copy{word-break:normal;overflow-wrap:break-word;line-break:strict;text-wrap:pretty}.token,.support-line{white-space:nowrap}.hero-support{font-size:clamp(14px,4.35vw,16px)!important}@supports(word-break:auto-phrase){.jp-copy{word-break:auto-phrase}}</style>
+<style>
+.site-header{position:sticky;z-index:40;top:0;width:min(100%,430px);height:62px;margin:0 auto;display:flex;align-items:center;padding:0 22px;background:rgba(255,253,248,.96);border-bottom:1px solid #E8DCCB}.site-wordmark{color:#2A211B;font-family:'Apple SD Gothic Neo',sans-serif;font-size:22px;font-weight:800;line-height:1;letter-spacing:.01em}.floating-cta-shell{position:fixed;z-index:50;left:50%;bottom:max(14px,env(safe-area-inset-bottom));width:min(calc(100% - 28px),402px);opacity:1;transform:translate(-50%,0);transition:opacity 320ms cubic-bezier(.25,1,.5,1),transform 320ms cubic-bezier(.25,1,.5,1);will-change:opacity,transform}.floating-cta-shell.is-idle{opacity:0;pointer-events:none;transform:translate(-50%,18px)}.floating-line-cta{display:block;padding:17px 18px;border:3px solid #2A211B;border-radius:100px;background:#06C755;box-shadow:5px 5px 0 #2A211B;color:#FAFFF9;font:900 16px var(--jp);text-align:center}.floating-line-cta:focus-visible{outline:4px solid #F7B93F;outline-offset:4px}.floating-line-cta>span{display:inline-flex;align-items:center;justify-content:center;gap:9px}
+.sensor-story{position:relative;background:#F2E8D8;overflow:hidden}.sensor-photo{position:relative;aspect-ratio:16/9;overflow:hidden;isolation:isolate}.sensor-photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,253,248,.96) 0%,rgba(255,253,248,.76) 28%,rgba(255,253,248,0) 57%);pointer-events:none}.sensor-photo::before{content:"";position:absolute;z-index:2;left:0;right:0;bottom:-1px;height:76px;background:linear-gradient(180deg,rgba(255,247,235,0) 0%,rgba(255,247,235,.62) 62%,#FFF7EB 100%);pointer-events:none}.sensor-photo>img{display:block;width:100%;height:100%;object-fit:cover}.sensor-copy{position:absolute;z-index:3;top:24px;left:22px;width:48%;text-align:left}.sensor-kicker{font:900 11px var(--jp);letter-spacing:.12em;color:#A45F31}.sensor-copy h2{margin:8px 0 0;font:900 clamp(22px,6.5vw,28px) var(--jp);line-height:1.38;letter-spacing:-.035em;color:#2A211B}.sensor-anchor{position:absolute;z-index:4;left:84.3%;top:36.2%;width:5px;height:5px;border-radius:50%;background:#F06B2D;box-shadow:0 0 0 1px rgba(255,253,248,.96),0 0 0 3px rgba(240,107,45,.2);transform:translate(-50%,-50%);opacity:0}.sensor-ripple{position:absolute;z-index:3;left:84.3%;top:36.2%;width:16px;height:24px;border:1px solid rgba(240,107,45,.72);border-radius:50%;opacity:0;transform:translate(-50%,-50%) scale(.72);will-change:transform,opacity}.sensor-trace{position:absolute;z-index:2;inset:0;width:100%;height:100%;pointer-events:none}.sensor-trace path{fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0}.sensor-trace .trace-backdrop{stroke:rgba(255,253,248,.88);stroke-width:4.8;stroke-dasharray:none}.sensor-trace .trace-core{stroke:#E85F24;stroke-width:2.6;stroke-dasharray:150;stroke-dashoffset:150;filter:drop-shadow(0 1px 1px rgba(88,44,21,.22))}.sensor-status{position:absolute;z-index:4;left:22px;bottom:14px;display:flex;align-items:center;gap:7px;padding:8px 11px;background:#2A211B;color:#FFF7EB;font:800 10px var(--jp);letter-spacing:.05em;border-radius:999px;opacity:0;transform:translateY(7px)}.sensor-status-dot{width:7px;height:7px;border-radius:50%;background:#F7B93F}.measurement-panel{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 172px;align-items:start;column-gap:14px;min-height:302px;margin-top:-1px;padding:54px 18px 28px 22px;background:#FFF7EB}.measurement-device{position:relative;z-index:6;grid-column:2;grid-row:1;justify-self:end;width:172px;margin-top:-138px;margin-bottom:-138px;aspect-ratio:1290/2640;overflow:hidden;border:7px solid #2A211B;border-radius:29px;background:#F7E8D8;box-shadow:0 18px 42px rgba(62,42,28,.22);opacity:0;transform:translateY(28px) scale(.97);transform-origin:50% 100%;will-change:transform,opacity}.measurement-device::before{content:"";position:absolute;z-index:3;top:6px;left:50%;width:48px;height:10px;border-radius:999px;background:#2A211B;transform:translateX(-50%);pointer-events:none}.measurement-device video{display:block;width:100%;height:100%;object-fit:cover}.measurement-play{position:absolute;z-index:4;inset:50% auto auto 50%;width:52px;height:52px;border:0;border-radius:50%;background:#2A211B;color:#FFF7EB;box-shadow:0 8px 22px rgba(42,33,27,.24);font-size:0;transform:translate(-50%,-50%);cursor:pointer}.measurement-play::after{content:"";display:block;width:0;height:0;margin-left:20px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #F7B93F}.measurement-play.is-hidden{display:none}.sensor-result{position:relative;z-index:7;grid-column:1;grid-row:1;min-width:0;display:block;padding:0;background:transparent;text-align:left}.sensor-number{display:flex;align-items:baseline;min-width:0;color:#2A211B;font-variant-numeric:tabular-nums}.sensor-number strong{font:900 42px var(--jp);line-height:1}.sensor-number span{margin-left:3px;font:900 14px var(--jp)}.sensor-result-copy{margin-top:14px}.sensor-result-copy strong{display:block;font:900 14px var(--jp);line-height:1.55;color:#2A211B}.sensor-result-copy p{margin:5px 0 0;font:500 11px var(--jp);line-height:1.7;color:#6D5B49}.sensor-story.is-sensing .sensor-anchor{animation:sensor-anchor-in 420ms cubic-bezier(.25,1,.5,1) .18s both}.sensor-story.is-sensing .sensor-ripple{animation:sensor-capture 920ms cubic-bezier(.25,1,.5,1) both}.sensor-story.is-sensing .ripple-1{animation-delay:.22s}.sensor-story.is-sensing .ripple-2{animation-delay:.48s}.sensor-story.is-sensing .ripple-3{animation-delay:.74s}.sensor-story.is-sensing .sensor-trace path{animation:sensor-trace-in 900ms cubic-bezier(.25,1,.5,1) 1.04s both}.sensor-story.is-sensing .sensor-status{animation:sensor-status-in 520ms cubic-bezier(.25,1,.5,1) 1.64s both}.sensor-story.is-sensing .measurement-device{animation:measurement-device-in 1400ms cubic-bezier(.25,1,.5,1) 1.35s both}@keyframes sensor-anchor-in{0%{opacity:0;transform:translate(-50%,-50%) scale(.55)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}@keyframes sensor-capture{0%{opacity:0;transform:translate(-50%,-50%) scale(.72)}26%{opacity:.86}100%{opacity:0;transform:translate(-50%,-50%) scale(1.42)}}@keyframes sensor-trace-in{0%{stroke-dashoffset:150;opacity:0}20%{opacity:.96}100%{stroke-dashoffset:0;opacity:.92}}@keyframes sensor-status-in{0%{opacity:0;transform:translateY(7px)}100%{opacity:1;transform:translateY(0)}}@keyframes measurement-device-in{0%{opacity:0;transform:translateY(28px) scale(.97)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.howto-section{--slide-width:clamp(268px,78vw,320px);--track-gutter:max(24px,calc((100% - var(--slide-width))/2));position:relative;padding:46px 0 50px;background:#FFF7EB;overflow:hidden}.howto-heading{padding:0 24px;text-align:left}.howto-heading h2{margin:0;font:900 28px var(--jp);line-height:1.42;letter-spacing:-.035em;color:#2A211B}.howto-heading span{display:block;margin-top:7px;font:900 12px var(--jp);letter-spacing:.12em;color:#C2703A}.howto-heading p{margin:18px 0 0;max-width:350px;font:500 14px var(--jp);line-height:1.85;color:#6D5B49}.howto-track{display:flex;gap:16px;margin-top:28px;padding:0 var(--track-gutter) 8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--track-gutter);overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x pan-y;cursor:grab;user-select:none}.howto-track.is-dragging{scroll-snap-type:none;cursor:grabbing}.howto-track::-webkit-scrollbar{display:none}.howto-track img{-webkit-user-drag:none}.howto-slide{flex:0 0 var(--slide-width);scroll-snap-align:center;scroll-snap-stop:always;text-align:center}.howto-visual{position:relative;height:405px;display:flex;align-items:flex-start;justify-content:center;padding-top:14px;border-radius:30px;background:linear-gradient(155deg,#F7DDBA 0%,#FFFDF8 58%,#F1E4D4 100%);overflow:hidden}.howto-visual::before{content:"";position:absolute;width:210px;height:210px;top:-78px;right:-66px;border-radius:50%;background:rgba(247,185,63,.24)}.howto-device{position:relative;width:184px;height:376px;overflow:hidden;border:7px solid #2A211B;border-radius:29px;background:#FFFDF8;box-shadow:0 18px 34px rgba(62,42,28,.2)}.howto-device::before{content:"";position:absolute;z-index:2;top:7px;left:50%;width:52px;height:11px;border-radius:999px;background:#2A211B;transform:translateX(-50%)}.howto-device img{display:block;width:100%;height:100%;object-fit:cover}.howto-slide[data-howto-step="meal_report"] .howto-device img{transform:translateX(-4px) scale(1.025)}.howto-step-label{display:inline-flex;align-items:center;justify-content:center;min-width:92px;margin-top:22px;padding:9px 15px;border-radius:999px;background:#2A211B;color:#F7B93F;font:900 12px var(--jp);letter-spacing:.1em}.howto-step-kind{margin-top:13px;font:800 12px var(--jp);letter-spacing:.08em;color:#A45F31}.howto-slide h3{margin:7px 0 0;font:900 21px var(--jp);line-height:1.45;color:#2A211B}.howto-slide p{margin:10px auto 0;max-width:300px;min-height:74px;font:500 13px var(--jp);line-height:1.8;color:#6D5B49;text-wrap:pretty}.howto-nav{display:flex;justify-content:center;gap:3px;margin-top:17px}.howto-nav button{position:relative;width:52px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}.howto-nav button::before{content:"";position:absolute;left:7px;right:7px;top:20px;height:3px;border-radius:999px;background:#C9BBA8;transition:background-color 220ms ease,transform 220ms ease}.howto-nav button[aria-current="step"]::before{background:#C2703A;transform:scaleX(1.08)}.howto-nav button:focus-visible{outline:3px solid #F7B93F;outline-offset:-5px;border-radius:10px}.howto-slide.is-active .howto-visual{box-shadow:0 12px 30px rgba(84,54,30,.09)}
+.faq-section{padding:48px 24px 50px;background:#FFF7EB}.faq-heading{text-align:center}.faq-heading small{display:block;font:900 11px var(--jp);letter-spacing:.16em;color:#C2703A}.faq-heading h2{margin:6px 0 0;font:900 26px var(--jp);line-height:1.4;color:#2A211B}.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:24px}.faq-item{padding:19px 18px 20px;border:2px solid #2A211B;border-radius:16px;background:#FFFDF8;box-shadow:4px 4px 0 #2A211B}.faq-row{display:grid;grid-template-columns:29px minmax(0,1fr);gap:8px}.faq-row+.faq-row{margin-top:11px;padding-top:11px;border-top:1px solid #E7D9C6}.faq-mark{font:900 17px var(--jp);line-height:1.55;color:#C2703A}.faq-answer .faq-mark{color:#7A4A22}.faq-question-text{font:900 15px var(--jp);line-height:1.65;color:#2A211B}.faq-answer-text{font:500 14px var(--jp);line-height:1.8;color:#5C4F3E;text-wrap:pretty}.social-follow{margin-top:42px;padding-top:38px;border-top:1px solid #E7D9C6;text-align:center}.social-follow-title{position:relative;display:inline-block;padding:11px 20px;border:2px solid #06C755;border-radius:999px;background:#FFFDF8;color:#078F41;font:900 15px var(--jp);line-height:1.55}.social-follow-title::after{content:"";position:absolute;left:50%;bottom:-8px;width:14px;height:14px;border-right:2px solid #06C755;border-bottom:2px solid #06C755;background:#FFFDF8;transform:translateX(-50%) rotate(45deg)}.social-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:27px}.social-link{min-height:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;border:2px solid #E4D5C1;border-radius:18px;background:#FFFDF8;color:#2A211B;font:800 11px var(--jp);transition:transform 220ms cubic-bezier(.25,1,.5,1),border-color 220ms ease,background-color 220ms ease}.social-app-icon{width:48px;height:48px;overflow:visible;filter:drop-shadow(0 4px 7px rgba(42,33,27,.15))}.social-link:hover{transform:translateY(-2px);border-color:#C2703A;background:#FFF9F0}.social-link:active{transform:translateY(1px)}.social-link:focus-visible{outline:4px solid #F7B93F;outline-offset:3px}
+@media(max-width:360px){.sensor-status{left:18px}.measurement-panel{grid-template-columns:minmax(0,1fr) 146px;column-gap:12px;padding:48px 10px 24px 18px}.measurement-device{width:146px;margin-top:-120px;margin-bottom:-120px;border-width:6px;border-radius:25px}.sensor-result-copy strong{font-size:12px}.sensor-result-copy p{font-size:10px}}@media(max-width:340px){.howto-section{--slide-width:268px}.howto-visual{height:378px}.howto-device{width:172px;height:350px}.howto-slide p{font-size:12px}.faq-section{padding-inline:18px}.faq-item{padding-inline:15px}.social-links{gap:7px}.social-link{min-height:96px}.social-app-icon{width:44px;height:44px}}@media(prefers-reduced-motion:reduce){.floating-cta-shell{transition:none!important}.sensor-anchor,.sensor-status,.sensor-trace path,.measurement-device{opacity:1!important;transform:none!important;animation:none!important}.sensor-anchor{transform:translate(-50%,-50%)!important}.sensor-ripple{opacity:.3!important;transform:translate(-50%,-50%) scale(1.08)!important;animation:none!important}.sensor-ripple:nth-of-type(n+3){display:none}.howto-track{scroll-behavior:auto}.howto-nav button::before,.social-link{transition:none}.social-link:hover,.social-link:active{transform:none}}
+</style>
 <script>
 (function(a_,i_,r_,_b,_r,_i,_d,_g,_e){function q(b,a){function d(){var l=x(b,a);y(l)}if(0<_g){var e,f=new (null!=(e=a_.XDomainRequest)?e:a_.XMLHttpRequest);e=function(){};f.open("GET",a);f.timeout=_g;f.onload=d;f.onerror=e;f.onprogress=e;f.ontimeout=e;f.send()}else d()}function y(b){if("complete"===i_.readyState)i_.head.appendChild(b);else{var a=function(){a_.removeEventListener("load",a);i_.head.appendChild(b)};a_.addEventListener("load",a)}}function x(b,a){var d=i_.createElement(r_);d.async=!0;d.src=a;d.onerror=function(){return z(b)};return d}function z(b){b.queue.filter(function(a){return 0<=_d.indexOf(a[0])}).forEach(function(a){a=a[1];a=a[a.length-1];"function"===typeof a&&a("Failed to load Airbridge SDK.")})}function r(b){var a={queue:null!=b?b:[],get isSDKEnabled(){return!1}};_i.concat(_d).forEach(function(d){var e=d.split("."),f=e.pop();e.reduce(function(l,t){var u;return l[t]=null!=(u=l[t])?u:{}},a)[f]=function(){a.queue.push([d,arguments])}});return a}null!=a_.__AIRBRIDGE__||(a_.__AIRBRIDGE__={mocks:[]});"undefined"!==typeof i_.documentMode&&(_r=_r.replace(/^https:/,""));a_.createAirbridge=function(){var b=r(),a;null==(a=a_.__AIRBRIDGE__)||a.mocks.push(b);q(b,_r);return b};a_[_b]||(_e=r(_e),a_[_b]=_e,q(_e,_r))})(window,document,"script","airbridge","https://static.airbridge.io/sdk/latest/airbridge.min.js","init startTracking stopTracking openBanner setBanner setDownload setDownloads openDeeplink setDeeplinks sendWeb setUserAgent setMobileAppData setUserID clearUserID setUserEmail clearUserEmail setUserPhone clearUserPhone setUserAttribute removeUserAttribute clearUserAttributes setUserAlias removeUserAlias clearUserAlias clearUser setUserId setUserAttributes addUserAlias setDeviceAlias removeDeviceAlias clearDeviceAlias setDeviceIFV setDeviceIFA setDeviceGAID events.send events.signIn events.signUp events.signOut events.purchased events.addedToCart events.productDetailsViewEvent events.homeViewEvent events.productListViewEvent events.searchResultViewEvent".split(" "),["events.wait","fetchResource","createTouchpoint","createTrackingLink"],0);
 </script>
@@ -18,28 +25,45 @@
 fbq('init','27445797488456045');
 fbq('track','PageView');
 </script>
+<script src="../assets/amplitude.js"></script>
 </head>
 <body class="jp-copy">
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=27445797488456045&ev=PageView&noscript=1"></noscript>
-<main><div id="8c" data-source-section="8c" style="display:flex;flex-direction:column;gap:20px;width:430px;">
+<header class="site-header"><a class="site-wordmark" href="#top" aria-label="Ododok トップへ">Ododok</a></header>
+<main id="top"><div id="8c" data-source-section="8c" style="display:flex;flex-direction:column;gap:20px;width:430px;">
     <div style="display:flex;align-items:center;gap:14px;">
       <div style="background:#2A211B;color:#FAF7F2;font:900 20px 'Pretendard Variable',Pretendard,sans-serif;padding:8px 16px;border-radius:8px;">8c</div>
       <div style="font:700 18px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">コンセプトA · 確定案（9aデザインシステム適用）</div>
     </div>
     <div style="position:relative;width:430px;background:#FFFDF8;overflow:hidden;">
 
-      <div data-reveal="1" style="position:relative;padding:30px 24px 0;background:#FFF7EB;text-align:center;">
+      <div data-reveal="1" data-analytics-section="hero" data-section-order="1" style="position:relative;padding:30px 24px 24px;background:#FFF7EB;text-align:center;">
         <div style="font:900 13px 'Pretendard Variable',Pretendard,sans-serif;letter-spacing:0.14em;color:#C2703A;">早食いの習慣、気づいていますよね</div>
         <h1 class="hero-title" style="margin:12px 0 0;font:900 38px 'Noto Sans JP',sans-serif;color:#2A211B;line-height:1.34;letter-spacing:-0.03em;"><span class="semantic-line">いま、何回噛んだっけ？</span><span class="semantic-line">これからはオディが</span><span class="semantic-line">数えます。</span></h1>
-        <img class="hero-visual" src="../assets/app-report.png" alt="" style="width:206px;height:auto;display:block;margin:18px auto 14px;">
-        <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;"><div style="display:inline-flex;align-items:center;gap:6px;background:#F7B93F;color:#2A211B;border:3px solid #2A211B;font:900 15px 'Pretendard Variable',Pretendard,sans-serif;padding:11px 16px;border-radius:10px;">いつものAirPodsだけ</div><div style="display:inline-flex;align-items:center;gap:6px;background:#FFFFFF;color:#2A211B;border:3px solid #2A211B;font:900 15px 'Pretendard Variable',Pretendard,sans-serif;padding:11px 16px;border-radius:10px;">追加デバイス0円</div></div>
-        <p class="hero-support" style="margin:14px 0 0;font:500 16px 'Noto Sans JP',sans-serif;line-height:1.9;color:#5C4F3E;text-wrap:pretty;"><span class="support-line">噛んだ回数・速さ・リズムを</span><span class="support-line"><span class="token">AirPods</span>で自動記録。</span><span class="support-line">食事が終わると、レポートで</span><span class="support-line">まとめて確認できます。</span></p>
-
-
-        <div style="margin-top:22px;padding-bottom:22px;"><a data-line-cta data-cta-position="cta_1" href="https://go.ododok.app/7ueukr" style="display:block;text-decoration:none;background:#06C755;color:#FFFFFF;border:3px solid #2A211B;box-shadow:5px 5px 0 #2A211B;font:900 17px 'Pretendard Variable',Pretendard,sans-serif;padding:18px;border-radius:100px;text-align:center;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで友だち追加</span></a></div>
+        <img class="hero-visual" src="../assets/app-report.png" alt="" style="width:206px;height:auto;display:block;margin:18px auto 0;">
       </div>
 
-      <div data-reveal="1" style="padding:40px 24px 46px;background:#FFFDF8;">
+      <section class="sensor-story" data-reveal="1" data-sensor-scene data-analytics-section="motion_explainer" data-section-order="2" aria-labelledby="sensor-story-title">
+        <div class="sensor-photo">
+          <img src="../assets/point-airpods-eating-v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="AirPodsをつけて昼食を食べようとしている女性">
+          <div class="sensor-copy"><div class="sensor-kicker">AirPodsで、ここまでできる。</div><h2 id="sensor-story-title">食べるだけで、<br>噛む動きを記録。</h2></div>
+          <svg class="sensor-trace" viewBox="0 0 430 242" preserveAspectRatio="none" aria-hidden="true"><path class="trace-backdrop" d="M363 88 C370 126 359 172 330 220"/><path class="trace-core" d="M363 88 C370 126 359 172 330 220"/></svg>
+          <span class="sensor-anchor" aria-hidden="true"></span><span class="sensor-ripple ripple-1" aria-hidden="true"></span><span class="sensor-ripple ripple-2" aria-hidden="true"></span><span class="sensor-ripple ripple-3" aria-hidden="true"></span>
+          <div class="sensor-status" aria-hidden="true"><span class="sensor-status-dot"></span>モーション検知</div>
+        </div>
+        <div class="measurement-panel">
+          <div class="sensor-result">
+            <div class="sensor-number"><strong data-sensor-count>27</strong><span>回</span></div>
+            <div class="sensor-result-copy"><strong>噛む回数の目安を自動で記録</strong><p>食べる速さとリズムを確認。噛む動きを検知するたび、オディもどんぐりを食べます。</p></div>
+          </div>
+          <div class="measurement-device" data-measurement-device>
+            <video data-measurement-video muted playsinline preload="metadata" poster="../assets/point-measurement-poster-v1.webp" aria-label="Ododokで食事を測定している画面"><source src="../assets/point-measurement-demo-v1.mp4" type="video/mp4"></video>
+            <button class="measurement-play is-hidden" data-measurement-play type="button" aria-label="測定画面の動画を再生"></button>
+          </div>
+        </div>
+      </section>
+
+      <div data-reveal="1" data-analytics-section="pain_dialogue" data-section-order="3" style="padding:40px 24px 46px;background:#FFFDF8;">
         <div style="text-align:center;font:900 27px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.42;">早食いが気になる理由。</div>
         <div style="margin-top:22px;display:flex;flex-direction:column;gap:14px;">
           <div style="display:flex;align-items:flex-end;gap:10px;">
@@ -65,36 +89,43 @@ fbq('track','PageView');
         </div>
       </div>
 
-      <div data-reveal="1" style="position:relative;padding:44px 24px 46px;background:#FFF7EB;">
-
-        <div class="balanced-heading" style="text-align:center;font:900 27px 'Noto Sans JP',sans-serif;color:#2A211B;line-height:1.42;"><span class="semantic-line">追加費用0円で、</span><span class="semantic-line">測定から分析まで。</span></div>
-
-        <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px;">
-          <div style="position:relative;background:#FFFFFF;border:3px solid #2A211B;border-radius:14px;padding:24px 22px;box-shadow:6px 6px 0 #2A211B;">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <div style="flex:none;width:40px;height:40px;border-radius:100px;background:#2A211B;color:#F7B93F;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;display:flex;align-items:center;justify-content:center;">01</div>
-              <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">つけて食べる</div>
-            </div>
-            <div style="margin-top:12px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">お手持ちのAirPodsで始められます。新しいデバイスは必要ありません。</div>
-          </div>
-          <div style="position:relative;background:#FFFFFF;border:3px solid #2A211B;border-radius:14px;padding:24px 22px;box-shadow:6px 6px 0 #2A211B;">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <div style="flex:none;width:40px;height:40px;border-radius:100px;background:#2A211B;color:#F7B93F;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;display:flex;align-items:center;justify-content:center;">02</div>
-              <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">よく噛む</div>
-            </div>
-            <div style="margin-top:12px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">食べるペースが速いとオディがお知らせ。画面を見ていなくても測定します。</div>
-          </div>
-          <div style="position:relative;background:#FFFFFF;border:3px solid #2A211B;border-radius:14px;padding:24px 22px;box-shadow:6px 6px 0 #2A211B;">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <div style="flex:none;width:40px;height:40px;border-radius:100px;background:#2A211B;color:#F7B93F;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;display:flex;align-items:center;justify-content:center;">03</div>
-              <div style="font:900 21px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">レポートを受け取る</div>
-            </div>
-            <div style="margin-top:12px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">食事が終わると、速さ・噛み方・食事時間をまとめて表示。習慣を振り返るきっかけになります。</div>
-          </div>
+      <section class="howto-section" data-reveal="1" data-analytics-section="how_it_works" data-section-order="4" aria-labelledby="howto-title">
+        <div class="howto-heading">
+          <h2 id="howto-title">測定から振り返りまで、<br>3ステップ。</h2>
+          <span>HOW TO USE</span>
+          <p>対応するAirPodsをつけたら、いつもの食事を始めるだけ。食べ方の記録をあとから確認できます。</p>
         </div>
-      </div>
+        <div class="howto-track" data-howto-track tabindex="0" role="region" aria-label="Ododokの使い方を3つのステップで確認できます">
+          <article class="howto-slide is-active" data-howto-slide data-howto-step="meal_prepare" aria-labelledby="howto-step-1-title">
+            <div class="howto-visual"><div class="howto-device"><img src="../assets/point-howto-prepare-v1.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Ododokのホーム画面で食事を始める"></div></div>
+            <div class="howto-step-label">STEP 1</div>
+            <div class="howto-step-kind">食事の準備</div>
+            <h3 id="howto-step-1-title">AirPodsをつけて準備</h3>
+            <p>モーションセンサーに対応したAirPodsを接続し、ホーム画面の「食事を始める」をタップします。</p>
+          </article>
+          <article class="howto-slide" data-howto-slide data-howto-step="meal_start" aria-labelledby="howto-step-2-title">
+            <div class="howto-visual"><div class="howto-device"><img src="../assets/point-howto-eating-v1.webp" width="720" height="1474" loading="lazy" decoding="async" alt="Ododokで食事中の噛む動きを記録している画面"></div></div>
+            <div class="howto-step-label">STEP 2</div>
+            <div class="howto-step-kind">食事スタート</div>
+            <h3 id="howto-step-2-title">いつもどおり食べる</h3>
+            <p>食事中の動きから、噛む回数と咀嚼テンポの目安を記録。画面を閉じても測定を続けます。</p>
+          </article>
+          <article class="howto-slide" data-howto-slide data-howto-step="meal_report" aria-labelledby="howto-step-3-title">
+            <div class="howto-visual"><div class="howto-device"><img src="../assets/point-howto-report-v1.webp" width="720" height="1525" loading="lazy" decoding="async" alt="噛んだ回数や食べる速さを確認できる食事レポート画面"></div></div>
+            <div class="howto-step-label">STEP 3</div>
+            <div class="howto-step-kind">食事レポート</div>
+            <h3 id="howto-step-3-title">食べ方を振り返る</h3>
+            <p>食事時間、噛んだ回数、食べる速さ、「噛む・休む」のリズムを、いつもの自分と比べて確認できます。</p>
+          </article>
+        </div>
+        <div class="howto-nav" aria-label="使い方のステップを選ぶ">
+          <button type="button" data-howto-dot data-howto-target="0" aria-label="STEP 1 食事の準備へ" aria-current="step"></button>
+          <button type="button" data-howto-dot data-howto-target="1" aria-label="STEP 2 食事スタートへ"></button>
+          <button type="button" data-howto-dot data-howto-target="2" aria-label="STEP 3 食事レポートへ"></button>
+        </div>
+      </section>
 
-      <div data-reveal="1" style="padding:46px 24px;background:#2A211B;">
+      <div data-reveal="1" data-analytics-section="product_proof" data-section-order="5" style="padding:46px 24px;background:#2A211B;">
         <div style="text-align:center;font:900 27px 'Pretendard Variable',Pretendard,sans-serif;color:#F2EDE6;line-height:1.42;">急いで食べた日は<br>からだが先に気づきます。</div>
         <div style="margin-top:12px;text-align:center;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.85;color:#C2B6A4;text-wrap:pretty;">同じ食事でも、ゆっくり長く噛むと満腹のサインを感じやすくなります。<br>目安はひと口30回です。</div>
         <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;">
@@ -183,44 +214,236 @@ fbq('track','PageView');
 
 
 
-      <div data-reveal="1" style="padding:44px 24px;background:#FFF7EB;">
-        <div style="text-align:center;font:900 24px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">よくある質問</div>
-        <div style="margin-top:22px;display:flex;flex-direction:column;gap:10px;">
-          <div style="background:#FFFFFF;border:3px solid #2A211B;border-radius:12px;padding:20px;box-shadow:5px 5px 0 #2A211B;">
-            <div style="font:900 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">AirPodsだけでいいの？</div>
-            <div style="margin-top:8px;font:500 14px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">はい。専用デバイスを購入せず、お手持ちのAirPodsで噛んだ回数を数えます。</div>
-          </div>
-          <div style="background:#FFFFFF;border:3px solid #2A211B;border-radius:12px;padding:20px;box-shadow:5px 5px 0 #2A211B;">
-            <div style="font:900 15px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;">噛んだ回数はどう数えるの？</div>
-            <div style="margin-top:8px;font:500 14px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.8;color:#5C4F3E;text-wrap:pretty;">AirPodsの動きから顎の咀嚼動作を認識します。音声は録音しません。</div>
-          </div>
-
+      <section class="faq-section" data-reveal="1" data-analytics-section="faq" data-section-order="6" aria-labelledby="faq-title">
+        <div class="faq-heading"><small>Q&amp;A</small><h2 id="faq-title">よくある質問</h2></div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <div class="faq-row"><span class="faq-mark" aria-hidden="true">Q.</span><div class="faq-question-text">どのAirPodsでも使えるの？</div></div>
+            <div class="faq-row faq-answer"><span class="faq-mark" aria-hidden="true">A.</span><div class="faq-answer-text">ヘッドホンのモーションデータに対応したAirPodsが必要です。食事を始める前に、アプリが接続状態と対応可否を確認します。</div></div>
+          </article>
+          <article class="faq-item">
+            <div class="faq-row"><span class="faq-mark" aria-hidden="true">Q.</span><div class="faq-question-text">どうやって噛む動きを記録するの？</div></div>
+            <div class="faq-row faq-answer"><span class="faq-mark" aria-hidden="true">A.</span><div class="faq-answer-text">AirPodsから取得した姿勢・回転・加速度の変化を解析し、噛む回数やリズムの目安として記録します。</div></div>
+          </article>
+          <article class="faq-item">
+            <div class="faq-row"><span class="faq-mark" aria-hidden="true">Q.</span><div class="faq-question-text">音声やモーションデータはどう扱われるの？</div></div>
+            <div class="faq-row faq-answer"><span class="faq-mark" aria-hidden="true">A.</span><div class="faq-answer-text">食事の測定中だけモーションデータを取得し、音声や周囲の音は録音しません。モーションデータと食事記録は、測定・検知基準の調整・レポート提供のため暗号化した通信でサーバーへ送信し、最長1年間保管します。アカウントを削除すると、対象データも削除します。</div></div>
+          </article>
+          <article class="faq-item">
+            <div class="faq-row"><span class="faq-mark" aria-hidden="true">Q.</span><div class="faq-question-text">バックグラウンドでも測定できますか？</div></div>
+            <div class="faq-row faq-answer"><span class="faq-mark" aria-hidden="true">A.</span><div class="faq-answer-text">はい。食事の測定を開始したあと、YouTubeなどほかのアプリを開いても、バックグラウンドで測定を続けます。</div></div>
+          </article>
         </div>
-      </div>
+        <div class="social-follow" aria-labelledby="social-follow-title">
+          <div class="social-follow-title" id="social-follow-title">フォローしてOdodokの<br>最新情報をチェック</div>
+          <div class="social-links">
+            <a class="social-link social-link-x" data-social-link data-social-channel="x" href="https://x.com/ododok_jp" aria-label="OdodokのXをフォロー"><svg class="social-app-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5.8" fill="#050505"/><path fill="#fff" d="M17.4 4h2.8l-6.1 7 7.1 9h-5.6l-4.3-5.5L6.5 20H3.7l6.3-7.2L3.2 4H9l3.8 4.9L17.4 4Zm-1 14h1.5L8.2 5.8H6.6L16.4 18Z"/></svg><span>X</span></a>
+            <a class="social-link social-link-instagram" data-social-link data-social-channel="instagram" href="https://www.instagram.com/hey.ododok_jp/" aria-label="OdodokのInstagramをフォロー"><img class="social-app-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/250px-Instagram_icon.png" width="48" height="48" loading="lazy" decoding="async" alt=""><span>Instagram</span></a>
+            <a class="social-link social-link-line" data-social-link data-social-channel="line" href="https://go.ododok.app/7ueukr" aria-label="OdodokのLINE公式アカウントを友だち追加"><svg class="social-app-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5.8" fill="#06C755"/><path fill="#fff" d="M19.8 11.2c0-3.5-3.5-6.4-7.8-6.4s-7.8 2.9-7.8 6.4c0 3.1 2.8 5.8 6.6 6.3.3.1.6.2.7.5.1.2 0 .6 0 .8l-.1.8c0 .2-.2.9.7.5.9-.4 4.8-2.8 6.6-4.8.8-.9 1.1-2.2 1.1-4.1Z"/><text x="12" y="12.8" text-anchor="middle" fill="#06C755" font-family="Arial, sans-serif" font-size="4.8" font-weight="900" letter-spacing="-.15">LINE</text></svg><span>LINE</span></a>
+          </div>
+        </div>
+      </section>
 
-      <div data-reveal="1" style="padding:46px 24px;text-align:center;background:#FFFDF8;">
+      <div data-reveal="1" data-analytics-section="final_message" data-section-order="7" style="padding:46px 24px;text-align:center;background:#FFFDF8;">
         <div style="font:900 29px 'Pretendard Variable',Pretendard,sans-serif;color:#2A211B;line-height:1.4;">今日の一食から、<br>追加費用なしで始めよう。</div>
         <div style="margin-top:10px;font:500 15px 'Pretendard Variable',Pretendard,sans-serif;color:#5C4F3E;">友だち追加は無料 · 30秒</div>
       </div>
-      <div data-reveal="1" style="padding:6px 24px 44px;background:#FFFDF8;"><a data-line-cta data-cta-position="cta_2" href="https://go.ododok.app/7ueukr" style="display:block;text-decoration:none;background:#06C755;color:#FFFFFF;border:3px solid #2A211B;box-shadow:5px 5px 0 #2A211B;font:900 16px 'Pretendard Variable',Pretendard,sans-serif;padding:18px;border-radius:100px;text-align:center;"><span style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで友だち追加</span></a></div>
       <div data-reveal="1" style="padding:24px;background:#2A211B;color:#C2B6A4;font:500 13px 'Pretendard Variable',Pretendard,sans-serif;display:flex;flex-direction:column;gap:8px;align-items:center;">
         <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-start;width:100%;font:500 12px 'Pretendard Variable',Pretendard,sans-serif;line-height:1.7;color:#8C7B66;">
           <span>※ AirPodsが必要です</span>
           <span>※ レポートの数値は食事習慣によって異なります</span>
         </div>
-        <span>利用規約　プライバシーポリシー　お問い合わせ</span><span>© 2026 Odi</span>
+        <span>利用規約　プライバシーポリシー　お問い合わせ</span><span>© 2026 Ododok</span>
       </div>
 
     </div>
   </div></main>
+<div class="floating-cta-shell" data-floating-cta>
+  <a class="floating-line-cta" data-line-cta data-cta-position="sticky" href="https://go.ododok.app/7ueukr"><span><svg width="19" height="19" viewBox="0 0 24 24" fill="#FAFFF9" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.4c0 3.7 3.3 6.8 7.7 7.4.3.1.8.2.9.5.1.3 0 .7 0 1l-.2 1c-.1.3-.2 1 .9.6 1.1-.5 6-3.5 8.1-6 1.4-1.5 2-3 2-4.5C22.2 6.3 18 3 12 3z"></path></svg>LINEで先行案内を受け取る</span></a>
+</div>
 <script>
 (()=>{
   const concept="health";
   const params=new URLSearchParams(location.search);
   const attribution={utm_source:params.get("utm_source")||"",utm_medium:params.get("utm_medium")||"",utm_campaign:params.get("utm_campaign")||"",utm_content:params.get("utm_content")||"",utm_term:params.get("utm_term")||""};
-  const attributes=extra=>({concept: "health",page_path:location.pathname,...attribution,...extra});
-  airbridge.events.send("jp_landing_viewed",{action:"view",label:concept,customAttributes:attributes({cta_position:"none"})});
-  document.querySelectorAll("[data-line-cta]").forEach(cta=>cta.addEventListener("click",event=>{event.preventDefault();const destination=cta.href;let navigated=false;const navigate=()=>{if(navigated)return;navigated=true;location.assign(destination)};const fallback=setTimeout(navigate,1200);const eventId=globalThis.crypto?.randomUUID?.()||`${concept}-${cta.dataset.ctaPosition}-${Date.now()}-${Math.random().toString(16).slice(2)}`;try{fbq("track","Lead",attributes({cta_position:cta.dataset.ctaPosition}),{eventID:eventId})}catch(error){/* A blocked pixel must never stall the LINE handoff. */}airbridge.events.send("jp_line_cta_clicked",{action:"click",label:cta.dataset.ctaPosition,customAttributes:attributes({cta_position:cta.dataset.ctaPosition,event_id:eventId})});try{airbridge.events.wait(1000,()=>{clearTimeout(fallback);navigate()})}catch(error){clearTimeout(fallback);navigate()}}));
+  const environment=["ododok.app","www.ododok.app"].includes(location.hostname)?"prod":"test";
+  const analyticsEnabled=environment==="prod"||params.get("analytics_debug")==="1";
+  const attributes=extra=>({experiment_id:"jp_concept_v1",variant:params.get("experiment_variant")||concept,assignment_source:params.get("assignment_source")||(attribution.utm_source?"ad_direct":"direct"),landing_version:"jp_concept_v2",concept: "health",page_path:location.pathname,platform:"web",market:"jp",environment,...attribution,...extra});
+  const trackAmplitude=(eventName,eventProperties)=>{
+    if(params.get("analytics_debug")==="1")console.debug("[Ododok Analytics]",eventName,JSON.stringify(eventProperties));
+    return analyticsEnabled&&window.ododokAmplitude?window.ododokAmplitude.track(eventName,eventProperties):Promise.resolve({code:0});
+  };
+  const landingAttributes=attributes({cta_position:"none"});
+  airbridge.events.send("jp_landing_viewed",{action:"view",label:concept,customAttributes:landingAttributes});
+  trackAmplitude("jp_landing_viewed",landingAttributes);
+  let lastViewedSection="hero";
+  let maxScrollDepthPct=0;
+  const getScrollDepthPct=()=>{
+    const scrollHeight=document.documentElement.scrollHeight;
+    if(!scrollHeight)return 0;
+    return Math.min(100,Math.round((scrollY+innerHeight)/scrollHeight*100));
+  };
+  const isElementMeaningfullyVisible=element=>{
+    if(!element)return false;
+    const rect=element.getBoundingClientRect();
+    const visibleHeight=Math.max(0,Math.min(rect.bottom,innerHeight)-Math.max(rect.top,0));
+    return visibleHeight/Math.min(rect.height||1,innerHeight)>=.35;
+  };
+  const reachedScrollDepths=new Set();
+  let scrollDepthFrame;
+  const captureScrollDepth=()=>{
+    const currentDepth=getScrollDepthPct();
+    maxScrollDepthPct=Math.max(maxScrollDepthPct,currentDepth);
+    [25,50,75,90].forEach(threshold=>{
+      if(currentDepth<threshold||reachedScrollDepths.has(threshold))return;
+      reachedScrollDepths.add(threshold);
+      trackAmplitude("jp_scroll_depth_reached",attributes({scroll_depth_pct:threshold}));
+    });
+  };
+  window.addEventListener('scroll',()=>{
+    cancelAnimationFrame(scrollDepthFrame);
+    scrollDepthFrame=requestAnimationFrame(captureScrollDepth);
+  },{passive:true});
+  captureScrollDepth();
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const floatingCta=document.querySelector('[data-floating-cta]');
+  let floatingCtaTimer;
+  const showFloatingCta=()=>{
+    if(!floatingCta)return;
+    floatingCta.classList.remove('is-idle');
+    clearTimeout(floatingCtaTimer);
+    if(!reducedMotion&&!floatingCta.matches(':focus-within'))floatingCtaTimer=setTimeout(()=>floatingCta.classList.add('is-idle'),3000);
+  };
+  ['scroll','touchmove','wheel','pointerdown','keydown'].forEach(eventName=>window.addEventListener(eventName,showFloatingCta,{passive:true}));
+  floatingCta?.addEventListener('focusin',()=>{clearTimeout(floatingCtaTimer);floatingCta.classList.remove('is-idle')});
+  floatingCta?.addEventListener('focusout',showFloatingCta);
+  showFloatingCta();
+  if(floatingCta)trackAmplitude("jp_line_cta_viewed",attributes({cta_position:"sticky"}));
+
+  const sensorScene=document.querySelector('[data-sensor-scene]');
+  const sensorCount=document.querySelector('[data-sensor-count]');
+  const measurementVideo=document.querySelector('[data-measurement-video]');
+  const measurementPlay=document.querySelector('[data-measurement-play]');
+  const seenVideoPlaybackTriggers=new Set();
+  const playMeasurementVideo=(playbackTrigger='manual')=>{
+    if(!measurementVideo)return;
+    measurementVideo.currentTime=0;
+    const playback=measurementVideo.play();
+    if(playback)playback.then(()=>{
+      measurementPlay?.classList.add('is-hidden');
+      if(seenVideoPlaybackTriggers.has(playbackTrigger))return;
+      seenVideoPlaybackTriggers.add(playbackTrigger);
+      trackAmplitude("jp_measurement_video_started",attributes({playback_trigger:playbackTrigger,scene_visible_at_playback:isElementMeaningfullyVisible(sensorScene)}));
+    }).catch(()=>measurementPlay?.classList.remove('is-hidden'));
+  };
+  measurementPlay?.addEventListener('click',()=>playMeasurementVideo('manual'));
+  let sensorStarted=false;
+  let sensorCompleted=false;
+  let sensorStartedAt=0;
+  const completeSensorStory=()=>{
+    if(sensorCompleted)return;
+    sensorCompleted=true;
+    trackAmplitude("jp_measurement_demo_completed",attributes({
+      final_count:30,
+      count_steps:3,
+      duration_ms:Math.max(0,Date.now()-sensorStartedAt),
+      reduced_motion:reducedMotion,
+      scene_visible_at_completion:isElementMeaningfullyVisible(sensorScene)
+    }));
+  };
+  const startSensorStory=()=>{
+    if(sensorStarted||!sensorScene)return;
+    sensorStarted=true;
+    sensorStartedAt=Date.now();
+    trackAmplitude("jp_measurement_demo_started",attributes({trigger:"viewport",start_count:27,target_count:30,reduced_motion:reducedMotion}));
+    sensorScene.classList.add('is-sensing');
+    if(reducedMotion){if(sensorCount)sensorCount.textContent='30';measurementPlay?.classList.remove('is-hidden');completeSensorStory();return}
+    if(sensorCount){
+      sensorCount.textContent='27';
+      setTimeout(()=>{
+        let count=27;
+        const advanceCount=()=>{
+          count+=1;
+          sensorCount.textContent=String(count);
+          if(count>=30){clearInterval(counterTimer);completeSensorStory()}
+        };
+        const counterTimer=setInterval(advanceCount,760);
+      },1450);
+    }
+    setTimeout(()=>playMeasurementVideo('autoplay'),2350);
+  };
+  if(reducedMotion)startSensorStory();
+  else if(sensorScene&&'IntersectionObserver' in window){
+    const sensorObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(!entry.isIntersecting||entry.intersectionRatio<.45)return;
+      startSensorStory();
+      sensorObserver.disconnect();
+    }),{threshold:[.45]});
+    sensorObserver.observe(sensorScene);
+  }else startSensorStory();
+
+  const howtoTrack=document.querySelector('[data-howto-track]');
+  const howtoSection=document.querySelector('.howto-section');
+  const howtoSlides=[...document.querySelectorAll('[data-howto-slide]')];
+  const howtoDots=[...document.querySelectorAll('[data-howto-dot]')];
+  let howtoIndex=0;
+  let howtoFrame;
+  let howtoAutoplayTimer;
+  let howtoAutoplayVisible=false;
+  let howtoAutoplayStopped=reducedMotion;
+  let howtoDragging=false;
+  let howtoDragPointerId=null;
+  let howtoDragStartX=0;
+  let howtoDragCurrentX=0;
+  let howtoDragStartScrollLeft=0;
+  let howtoDragStartIndex=0;
+  const seenHowtoSteps=new Set();
+  const recordHowtoStep=(index,navigationMethod)=>{
+    if(seenHowtoSteps.has(index))return;
+    seenHowtoSteps.add(index);
+    const slide=howtoSlides[index];
+    trackAmplitude('jp_howto_step_viewed',attributes({step_number:index+1,step_name:slide?.dataset.howtoStep||'',navigation_method:navigationMethod}));
+  };
+  const setHowtoStep=(index,{track=true,navigationMethod='scroll'}={})=>{
+    const nextIndex=Math.max(0,Math.min(index,howtoSlides.length-1));
+    const alreadyActive=nextIndex===howtoIndex&&howtoSlides[nextIndex]?.classList.contains('is-active');
+    howtoIndex=nextIndex;
+    if(!alreadyActive){
+      howtoSlides.forEach((slide,slideIndex)=>slide.classList.toggle('is-active',slideIndex===nextIndex));
+      howtoDots.forEach((dot,dotIndex)=>dotIndex===nextIndex?dot.setAttribute('aria-current','step'):dot.removeAttribute('aria-current'));
+    }
+    if(track)recordHowtoStep(nextIndex,navigationMethod);
+  };
+  const scrollToHowtoStep=(index,navigationMethod='programmatic')=>{
+    const slide=howtoSlides[index];
+    if(!howtoTrack||!slide)return;
+    howtoTrack.scrollTo({left:slide.offsetLeft-(howtoTrack.clientWidth-slide.offsetWidth)/2,behavior:reducedMotion?'auto':'smooth'});
+    setHowtoStep(index,{navigationMethod});
+  };
+  const stopHowtoAutoplay=()=>{howtoAutoplayStopped=true;clearTimeout(howtoAutoplayTimer)};
+  const scheduleHowtoAutoplay=()=>{
+    clearTimeout(howtoAutoplayTimer);
+    if(howtoAutoplayStopped||!howtoAutoplayVisible||document.hidden||howtoSlides.length<2)return;
+    howtoAutoplayTimer=setTimeout(()=>{scrollToHowtoStep((howtoIndex+1)%howtoSlides.length,'autoplay');scheduleHowtoAutoplay()},4200);
+  };
+  const getNearestHowtoIndex=()=>{
+    const trackCenter=howtoTrack.scrollLeft+howtoTrack.clientWidth/2;
+    return howtoSlides.reduce((closest,slide,index)=>{const distance=Math.abs(slide.offsetLeft+slide.offsetWidth/2-trackCenter);return distance<closest.distance?{index,distance}:closest},{index:0,distance:Infinity}).index;
+  };
+  howtoTrack?.addEventListener('scroll',()=>{cancelAnimationFrame(howtoFrame);howtoFrame=requestAnimationFrame(()=>setHowtoStep(getNearestHowtoIndex()))},{passive:true});
+  howtoTrack?.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();stopHowtoAutoplay();scrollToHowtoStep(howtoIndex+(event.key==='ArrowRight'?1:-1),'keyboard')});
+  howtoTrack?.addEventListener('pointerdown',event=>{stopHowtoAutoplay();if(event.pointerType!=='mouse'||event.button!==0)return;howtoDragging=true;howtoDragPointerId=event.pointerId;howtoDragStartX=event.clientX;howtoDragCurrentX=event.clientX;howtoDragStartScrollLeft=howtoTrack.scrollLeft;howtoDragStartIndex=howtoIndex;howtoTrack.classList.add('is-dragging');howtoTrack.setPointerCapture?.(event.pointerId)});
+  howtoTrack?.addEventListener('pointermove',event=>{if(!howtoDragging||event.pointerId!==howtoDragPointerId)return;event.preventDefault();howtoDragCurrentX=event.clientX;howtoTrack.scrollLeft=howtoDragStartScrollLeft-(event.clientX-howtoDragStartX)},{passive:false});
+  const finishHowtoDrag=event=>{if(!howtoDragging||event.pointerId!==howtoDragPointerId)return;const dragDistance=howtoDragCurrentX-howtoDragStartX;const nextIndex=Math.abs(dragDistance)>=48?Math.max(0,Math.min(howtoDragStartIndex+(dragDistance<0?1:-1),howtoSlides.length-1)):getNearestHowtoIndex();howtoDragging=false;howtoDragPointerId=null;howtoTrack.classList.remove('is-dragging');setTimeout(()=>scrollToHowtoStep(nextIndex,'drag'),60)};
+  ['pointerup','pointercancel','lostpointercapture'].forEach(eventName=>howtoTrack?.addEventListener(eventName,finishHowtoDrag));
+  howtoTrack?.addEventListener('dragstart',event=>event.preventDefault());
+  ['pointerdown','touchstart','wheel','focusin'].forEach(eventName=>howtoTrack?.addEventListener(eventName,stopHowtoAutoplay,{passive:true}));
+  howtoDots.forEach(dot=>dot.addEventListener('click',()=>{stopHowtoAutoplay();scrollToHowtoStep(Number(dot.dataset.howtoTarget),'dot')}));
+  if(howtoSection&&'IntersectionObserver' in window){const howtoAutoplayObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{howtoAutoplayVisible=entry.isIntersecting&&entry.intersectionRatio>=.45;if(howtoAutoplayVisible){recordHowtoStep(howtoIndex,'initial');scheduleHowtoAutoplay()}else clearTimeout(howtoAutoplayTimer)}),{threshold:[.45]});howtoAutoplayObserver.observe(howtoSection)}else{howtoAutoplayVisible=true;recordHowtoStep(howtoIndex,'initial');scheduleHowtoAutoplay()}
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(howtoAutoplayTimer);else scheduleHowtoAutoplay()});
+  document.querySelectorAll('[data-social-link]').forEach(link=>link.addEventListener('click',()=>trackAmplitude('jp_social_link_clicked',attributes({social_channel:link.dataset.socialChannel||'',last_section:lastViewedSection,max_scroll_depth_pct:maxScrollDepthPct}))));
+  document.querySelectorAll("[data-line-cta]").forEach(cta=>cta.addEventListener("click",event=>{event.preventDefault();const destination=cta.href;let navigated=false;const navigate=()=>{if(navigated)return;navigated=true;location.assign(destination)};const fallback=setTimeout(navigate,1200);const eventId=globalThis.crypto?.randomUUID?.()||`${concept}-${cta.dataset.ctaPosition}-${Date.now()}-${Math.random().toString(16).slice(2)}`;const clickAttributes=attributes({cta_position:cta.dataset.ctaPosition,last_section:lastViewedSection,max_scroll_depth_pct:maxScrollDepthPct,event_id:eventId});try{fbq("track","Lead",clickAttributes,{eventID:eventId})}catch(error){/* A blocked pixel must never stall the LINE handoff. */}const amplitudeFlush=trackAmplitude("jp_line_cta_clicked",clickAttributes);const airbridgeFlush=new Promise(resolve=>{airbridge.events.send("jp_line_cta_clicked",{action:"click",label:cta.dataset.ctaPosition,customAttributes:clickAttributes});try{airbridge.events.wait(1000,resolve)}catch(error){resolve()}});Promise.race([Promise.allSettled([amplitudeFlush,airbridgeFlush]),new Promise(resolve=>setTimeout(resolve,1000))]).finally(()=>{clearTimeout(fallback);navigate()})}));
+  if(analyticsEnabled&&"IntersectionObserver" in window){const seenSections=new Set();const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting||entry.intersectionRatio<.35)return;const section=entry.target.dataset.analyticsSection;lastViewedSection=section;if(seenSections.has(section))return;seenSections.add(section);const scrollDepthPct=getScrollDepthPct();maxScrollDepthPct=Math.max(maxScrollDepthPct,scrollDepthPct);trackAmplitude("jp_section_viewed",attributes({section,section_order:Number(entry.target.dataset.sectionOrder),scroll_depth_pct:scrollDepthPct}))}),{threshold:[.35]});document.querySelectorAll("[data-analytics-section]").forEach(section=>sectionObserver.observe(section))}
 const revealNodes=[...document.querySelectorAll('[data-reveal="1"]')];
   const reveal=(element)=>{element.classList.remove('motion-ready');element.classList.add('motion-visible')};
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){revealNodes.forEach(reveal)}else if('IntersectionObserver' in window){
