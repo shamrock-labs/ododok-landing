@@ -4,6 +4,7 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import re
+import subprocess
 import unittest
 
 
@@ -370,11 +371,10 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertIn('trackAmplitude("jp_section_viewed"', html)
                 self.assertIn('experiment_id:"jp_concept_v1"', html)
                 self.assertIn('landing_version:"jp_concept_v2"', html)
-                self.assertIn("experiment_variant", html)
+                self.assertIn("variant,assignment_source:assignmentSource", html)
                 self.assertIn("assignment_source", html)
                 self.assertIn('environment=["ododok.app","www.ododok.app"]', html)
-                self.assertIn('params.get("analytics_debug")==="1"', html)
-                self.assertIn('console.debug("[Ododok Analytics]",eventName,JSON.stringify(eventProperties))', html)
+                self.assertIn('analyticsEnabled=environment==="prod"', html)
                 expected_sections = 6
                 self.assertGreaterEqual(html.count("data-analytics-section="), expected_sections)
                 self.assertIn("Promise.allSettled([amplitudeFlush,airbridgeFlush])", html)
@@ -395,6 +395,96 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertTrue(required_events.issubset(concept_events[concept]))
 
         self.assertEqual(concept_events["health"], concept_events["point"])
+
+    def test_amplitude_recovers_when_the_sdk_loads_after_the_wait_timeout(self):
+        """A slow CDN must not disable every later event in the same visit."""
+        sdk_path = ROOT / "jp" / "assets" / "amplitude.js"
+        harness = r'''
+const fs = require("fs");
+const vm = require("vm");
+const source = fs.readFileSync(process.argv[1], "utf8");
+let timeoutCallback;
+const scripts = [];
+const tracked = [];
+const window = {
+  setTimeout(callback) { timeoutCallback = callback; return 1; },
+  clearTimeout() {},
+  addEventListener() {},
+};
+const document = {
+  createElement() { const script = {}; scripts.push(script); return script; },
+  head: { appendChild() {} },
+};
+vm.runInNewContext(source, { window, document });
+(async () => {
+  const first = window.ododokAmplitude.track("first", {});
+  timeoutCallback();
+  await first;
+  window.amplitude = {
+    add() {}, init() {},
+    track(name) { tracked.push(name); return { promise: Promise.resolve({ code: 200 }) }; },
+  };
+  scripts[0].onload();
+  await window.ododokAmplitude.track("after_late_load", {});
+  if (!tracked.includes("after_late_load")) process.exit(1);
+})().catch(() => process.exit(1));
+'''
+        result = subprocess.run(
+            ["node", "-e", harness, str(sdk_path)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_amplitude_exposes_a_flush_that_waits_for_the_sdk_buffer(self):
+        """CTA navigation must wait for the queued event to leave the page."""
+        sdk_path = ROOT / "jp" / "assets" / "amplitude.js"
+        harness = r'''
+const fs = require("fs");
+const vm = require("vm");
+const source = fs.readFileSync(process.argv[1], "utf8");
+let flushed = false;
+let transport;
+const script = {};
+const window = { setTimeout() { return 1; }, clearTimeout() {}, addEventListener() {} };
+const document = { createElement() { return script; }, head: { appendChild() {} } };
+vm.runInNewContext(source, { window, document });
+window.amplitude = {
+  add() {}, init() {},
+  setTransport(value) { transport = value; },
+  flush() { flushed = true; return { promise: Promise.resolve({ code: 200 }) }; },
+};
+(async () => {
+  const pending = window.ododokAmplitude.flush(true);
+  script.onload();
+  await pending;
+  if (!flushed || transport !== "beacon") process.exit(1);
+})().catch(() => process.exit(1));
+'''
+        result = subprocess.run(
+            ["node", "-e", harness, str(sdk_path)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_direct_concept_urls_cannot_override_experiment_dimensions(self):
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertNotIn('params.get("experiment_variant")||concept', html)
+                self.assertNotIn('params.get("assignment_source")||(attribution.utm_source?', html)
+                self.assertIn("const variant=concept", html)
+                self.assertIn("allowedAssignmentSources", html)
+
+    def test_local_pages_have_no_amplitude_debug_override(self):
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertNotIn("analytics_debug", html)
+                self.assertIn('const analyticsEnabled=environment==="prod"', html)
 
     def test_meta_pixel_base_code_is_installed_on_both_pages(self):
         """Catches a concept page that ships without PageView tracking."""
@@ -432,9 +522,11 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertEqual(html.count('fbq("track","Lead"'), 1)
                 self.assertIn("eventID:eventId", html)
                 self.assertIn("event_id:eventId", html)
-                self.assertIn('trackAmplitude("jp_line_cta_clicked",clickAttributes)', html)
+                self.assertIn('trackAmplitude("jp_line_cta_clicked",clickAttributes,true)', html)
+                self.assertIn('window.ododokAmplitude.flush(true)', html)
+                self.assertIn('setTimeout(navigate,600)', html)
                 self.assertLess(
-                    html.index("setTimeout(navigate,1200)"), html.index('fbq("track","Lead"')
+                    html.index("setTimeout(navigate,2200)"), html.index('fbq("track","Lead"')
                 )
                 self.assertLess(
                     html.index('fbq("track","Lead"'), html.index("airbridge.events.wait")
