@@ -314,24 +314,21 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertNotIn(">80円<", html)
         self.assertNotIn(">120円<", html)
 
-    def test_airbridge_sdk_and_events_are_concept_specific(self):
+    def test_clarity_is_installed_and_airbridge_web_tracking_is_absent(self):
         for concept in self.CASES:
             with self.subTest(concept=concept):
                 html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
-                self.assertIn("airbridge.init", html)
-                self.assertIn("createAirbridge", html)
-                self.assertIn("__AIRBRIDGE__", html)
-                self.assertLess(html.index("createAirbridge"), html.index("airbridge.init"))
-                self.assertNotIn('<script src="https://static.airbridge.io/sdk/latest/airbridge.min.js"></script>', html)
-                self.assertIn("ododokdev", html)
-                self.assertIn("webToken", html)
-                self.assertIn("utmParsing:true", html)
+                self.assertIn('"https://www.clarity.ms/tag/"+i', html)
+                self.assertIn('"xxym4atl14"', html)
+                self.assertIn('window.clarity("set",key,String(value))', html)
+                self.assertIn('window.clarity("event",eventName)', html)
+                self.assertNotIn("airbridge.init", html)
+                self.assertNotIn("createAirbridge", html)
+                self.assertNotIn("airbridge.events", html)
+                self.assertNotIn("webToken", html)
                 self.assertIn("jp_landing_viewed", html)
                 self.assertIn("jp_line_cta_clicked", html)
-                self.assertIn("airbridge.events.wait", html)
-                self.assertIn("airbridge.events.wait(1000,", html)
                 self.assertNotIn('target="_blank"', html)
-                self.assertIn("customAttributes", html)
                 self.assertIn(f'concept: "{concept}"', html)
                 self.assertIn("page_path", html)
                 self.assertIn("cta_position", html)
@@ -377,7 +374,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                 self.assertIn('analyticsEnabled=environment==="prod"', html)
                 expected_sections = 6
                 self.assertGreaterEqual(html.count("data-analytics-section="), expected_sections)
-                self.assertIn("Promise.allSettled([amplitudeFlush,airbridgeFlush])", html)
+                self.assertIn("Promise.race([amplitudeFlush", html)
                 self.assertIn("const reachedScrollDepths=new Set()", html)
                 self.assertIn("[25,50,75,90]", html)
                 self.assertIn("const seenHowtoSteps=new Set()", html)
@@ -513,7 +510,7 @@ window.amplitude = {
             "Replace __META_PIXEL_ID__ with the real numeric Meta pixel ID in both concept pages.",
         )
 
-    def test_line_cta_reports_meta_airbridge_and_amplitude_without_blocking_navigation(self):
+    def test_line_cta_reports_meta_clarity_and_amplitude_without_blocking_navigation(self):
         """Catches a tracker call that can throw into the LINE handoff or split correlation IDs."""
         for concept in self.CASES:
             with self.subTest(concept=concept):
@@ -523,14 +520,13 @@ window.amplitude = {
                 self.assertIn("eventID:eventId", html)
                 self.assertIn("event_id:eventId", html)
                 self.assertIn('trackAmplitude("jp_line_cta_clicked",clickAttributes,true)', html)
+                self.assertIn('window.clarity("event",eventName)', html)
                 self.assertIn('window.ododokAmplitude.flush(true)', html)
                 self.assertIn('setTimeout(navigate,600)', html)
                 self.assertLess(
                     html.index("setTimeout(navigate,2200)"), html.index('fbq("track","Lead"')
                 )
-                self.assertLess(
-                    html.index('fbq("track","Lead"'), html.index("airbridge.events.wait")
-                )
+                self.assertNotIn("airbridge.events", html)
 
     def test_jp_root_router_stays_free_of_tracking(self):
         """Catches tracking on the router, which would double-count and slow the redirect."""
