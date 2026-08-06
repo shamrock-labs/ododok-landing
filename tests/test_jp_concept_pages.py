@@ -510,6 +510,17 @@ window.amplitude = {
             "Replace __META_PIXEL_ID__ with the real numeric Meta pixel ID in both concept pages.",
         )
 
+    def test_jp_pages_publish_browser_and_apple_icons(self):
+        for concept in self.CASES:
+            with self.subTest(concept=concept):
+                html = (ROOT / "jp" / concept / "index.html").read_text(encoding="utf-8")
+                self.assertIn('../assets/favicon-32.png', html)
+                self.assertIn('../assets/favicon-192.png', html)
+                self.assertIn('../assets/apple-touch-icon.png', html)
+
+        for filename in ("favicon-32.png", "favicon-192.png", "apple-touch-icon.png"):
+            self.assertTrue((ROOT / "jp" / "assets" / filename).is_file())
+
     def test_line_cta_reports_meta_clarity_and_amplitude_without_blocking_navigation(self):
         """Catches a tracker call that can throw into the LINE handoff or split correlation IDs."""
         for concept in self.CASES:
