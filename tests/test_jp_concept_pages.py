@@ -120,6 +120,16 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertNotIn("早食いの習慣、気づいていますよね", html)
         self.assertIn("まずは、自分のペースに気づくことから。", html)
         self.assertNotIn("目安はひと口30回です。", html)
+        self.assertIn("食べるペースを、", html)
+        self.assertIn("いつもの自分と比べて。", html)
+        self.assertIn("健康の基準ではなく、いつものあなたとの変化を振り返ります。", html)
+        self.assertIn("いつもより速め", html)
+        self.assertIn("いつもと同じくらい", html)
+        self.assertIn("いつもよりゆっくり", html)
+        self.assertNotIn("ひと口12回", html)
+        self.assertNotIn("ひと口21回", html)
+        self.assertNotIn("ひと口32回", html)
+        self.assertNotIn("とても良い", html)
         self.assertNotIn("噛み方タイプ診断型", html)
 
     def test_both_live_pages_are_fully_japanese(self):
