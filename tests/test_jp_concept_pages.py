@@ -62,7 +62,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             "lang": "ja",
             "cta": "https://go.ododok.app/7ueukr",
             "cta_count": 2,
-            "headline": "いつもの食事から、自分の「食べ方」が見えてくる。",
+            "headline": "AirPodsで、自分の「食べ方」が見えてくる。",
             "copy": "早食いが気になる理由。",
             "images": {
                 "../assets/daram-spoon.png",
@@ -109,9 +109,9 @@ class JapaneseConceptPagesTest(unittest.TestCase):
     def test_health_uses_the_zip_8c_confirmed_design(self):
         html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
         self.assertIn("コンセプトA · 確定案（9aデザインシステム適用）", html)
-        self.assertIn("「何を食べるか」は気にしても、", html)
-        self.assertIn("「どう食べるか」は気づきにくい。", html)
-        self.assertIn("いつもの食事から、自分の「食べ方」が見えてくる。", html)
+        self.assertIn("「何を食べるか」だけでなく、", html)
+        self.assertIn("「どう食べるか」にも目を向けてみる。", html)
+        self.assertIn("AirPodsで、自分の「食べ方」が見えてくる。", html)
         self.assertIn("AirPodsをつけて、いつもどおり食べるだけ。", html)
         self.assertIn("食べる速さや噛むリズムを自動で記録します。", html)
         self.assertEqual(html.count('data-analytics-section="hero"'), 1)
