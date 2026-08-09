@@ -62,10 +62,9 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             "lang": "ja",
             "cta": "https://go.ododok.app/7ueukr",
             "cta_count": 2,
-            "headline": "いま、何回噛んだっけ？",
+            "headline": "いつもの食事から、自分の「食べ方」が見えてくる。",
             "copy": "早食いが気になる理由。",
             "images": {
-                "../assets/app-report.png",
                 "../assets/daram-spoon.png",
                 "../assets/daram-trim.png",
                 "../assets/point-airpods-eating-v1.webp",
@@ -110,10 +109,15 @@ class JapaneseConceptPagesTest(unittest.TestCase):
     def test_health_uses_the_zip_8c_confirmed_design(self):
         html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
         self.assertIn("コンセプトA · 確定案（9aデザインシステム適用）", html)
-        self.assertIn("これからはオディが", html)
-        self.assertIn("数えます。", html)
-        self.assertIn("食べるだけで、", html)
-        self.assertIn("噛む動きを記録。", html)
+        self.assertIn("「何を食べるか」は気にしても、", html)
+        self.assertIn("「どう食べるか」は気づきにくい。", html)
+        self.assertIn("いつもの食事から、自分の「食べ方」が見えてくる。", html)
+        self.assertIn("AirPodsをつけて、いつもどおり食べるだけ。", html)
+        self.assertIn("食べる速さや噛むリズムを自動で記録します。", html)
+        self.assertEqual(html.count('data-analytics-section="hero"'), 1)
+        self.assertNotIn('data-analytics-section="motion_explainer"', html)
+        self.assertNotIn("いま、何回噛んだっけ？", html)
+        self.assertNotIn("早食いの習慣、気づいていますよね", html)
         self.assertNotIn("噛み方タイプ診断型", html)
 
     def test_both_live_pages_are_fully_japanese(self):
@@ -238,10 +242,13 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertLess(html.index('data-analytics-section="hero"'), html.index('data-analytics-section="motion_explainer"'))
         self.assertLess(html.index('data-analytics-section="motion_explainer"'), html.index('data-analytics-section="reward_dialogue"'))
 
-    def test_health_keeps_its_existing_hero_motion(self):
+    def test_health_uses_the_sensor_story_as_its_hero(self):
         html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
-        self.assertIn("@keyframes hero-float", html)
-        self.assertIn("7s ease-in-out infinite", html)
+        self.assertIn('class="sensor-story integrated-hero"', html)
+        self.assertIn('data-sensor-scene data-analytics-section="hero"', html)
+        self.assertIn('class="integrated-hero-copy"', html)
+        self.assertIn('class="sensor-photo"', html)
+        self.assertIn('class="measurement-panel"', html)
 
     def test_health_shares_product_foundations_without_point_rewards(self):
         html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
@@ -263,18 +270,19 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertIn("https://www.instagram.com/hey.ododok_jp/", html)
         self.assertIn("jp_social_link_clicked", html)
         self.assertIn("© 2026 Ododok", html)
-        self.assertIn('data-analytics-section="motion_explainer"', html)
+        self.assertEqual(html.count('data-analytics-section="hero"'), 1)
+        self.assertNotIn('data-analytics-section="motion_explainer"', html)
         self.assertIn('data-sensor-scene', html)
-        self.assertIn("AirPodsで、ここまでできる。", html)
         self.assertIn("噛む回数の目安を自動で記録", html)
         self.assertIn("data-sensor-count>27", html)
         self.assertIn("sensorCount.textContent='30'", html)
         self.assertIn("setInterval(advanceCount,760)", html)
         self.assertIn("../assets/point-measurement-demo-v1.mp4", html)
-        self.assertIn("噛む動きを検知するたび、オディもどんぐりを食べます", html)
+        self.assertIn("食事のあとに、食べる速さと噛むリズムを振り返れます", html)
+        self.assertNotIn("噛む動きを検知するたび、オディもどんぐりを食べます", html)
         self.assertNotIn("いつものAirPodsだけ", html)
         self.assertNotIn("追加デバイス0円", html)
-        self.assertNotIn('class="hero-support"', html)
+        self.assertIn('class="hero-support"', html)
         self.assertNotIn("どんぐりを特典へ", html)
         self.assertNotIn("ポイント交換", html)
         self.assertNotIn('data-cta-position="cta_1"', html)
