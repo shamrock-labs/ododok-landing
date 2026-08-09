@@ -62,7 +62,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             "lang": "ja",
             "cta": "https://go.ododok.app/7ueukr",
             "cta_count": 2,
-            "headline": "AirPodsで、自分の「食べ方」が見えてくる。",
+            "headline": "自分の「食べ方」に、",
             "copy": "早食いが気になる理由。",
             "images": {
                 "../assets/daram-spoon.png",
@@ -109,15 +109,17 @@ class JapaneseConceptPagesTest(unittest.TestCase):
     def test_health_uses_the_zip_8c_confirmed_design(self):
         html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
         self.assertIn("コンセプトA · 確定案（9aデザインシステム適用）", html)
-        self.assertIn("「何を食べるか」だけでなく、", html)
-        self.assertIn("「どう食べるか」にも目を向けてみる。", html)
-        self.assertIn("AirPodsで、自分の「食べ方」が見えてくる。", html)
+        self.assertIn("毎日の食事を、もっと健やかな習慣へ。", html)
+        self.assertIn("自分の「食べ方」に、", html)
+        self.assertIn("気づくことから。", html)
         self.assertIn("AirPodsをつけて、いつもどおり食べるだけ。", html)
         self.assertIn("食べる速さや噛むリズムを自動で記録します。", html)
         self.assertEqual(html.count('data-analytics-section="hero"'), 1)
         self.assertNotIn('data-analytics-section="motion_explainer"', html)
         self.assertNotIn("いま、何回噛んだっけ？", html)
         self.assertNotIn("早食いの習慣、気づいていますよね", html)
+        self.assertIn("まずは、自分のペースに気づくことから。", html)
+        self.assertNotIn("目安はひと口30回です。", html)
         self.assertNotIn("噛み方タイプ診断型", html)
 
     def test_both_live_pages_are_fully_japanese(self):
