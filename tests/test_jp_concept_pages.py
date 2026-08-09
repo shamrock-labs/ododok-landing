@@ -62,7 +62,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             "lang": "ja",
             "cta": "https://go.ododok.app/7ueukr",
             "cta_count": 2,
-            "headline": "自分の「食べ方」に、",
+            "headline": "いま、何回噛んだっけ？",
             "copy": "早食いが気になる理由。",
             "images": {
                 "../assets/daram-spoon.png",
@@ -76,6 +76,16 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             "source_marker": 'data-source-section="8c"',
         },
     }
+
+    def test_health_v2_is_published_separately_from_the_legacy_health_page(self):
+        legacy = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
+        v2 = (ROOT / "jp" / "health-v2" / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("いま、何回噛んだっけ？", legacy)
+        self.assertNotIn("自分の「食べ方」に、", legacy)
+        self.assertIn("自分の「食べ方」に、", v2)
+        self.assertIn("食べるペースを、", v2)
+        self.assertNotEqual(legacy, v2)
 
     def test_each_concept_has_a_mobile_japanese_page_and_only_its_cta(self):
         """Catches a missing route, crossed CTA, or non-mobile/non-Japanese page."""
@@ -107,7 +117,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
                         self.assertTrue((page.parent / src).resolve().is_file(), src)
 
     def test_health_uses_the_zip_8c_confirmed_design(self):
-        html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
+        html = (ROOT / "jp" / "health-v2" / "index.html").read_text(encoding="utf-8")
         self.assertIn("コンセプトA · 確定案（9aデザインシステム適用）", html)
         self.assertIn("毎日の食事を、もっと健やかな習慣へ。", html)
         self.assertIn("自分の「食べ方」に、", html)
@@ -255,7 +265,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertLess(html.index('data-analytics-section="motion_explainer"'), html.index('data-analytics-section="reward_dialogue"'))
 
     def test_health_uses_the_sensor_story_as_its_hero(self):
-        html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
+        html = (ROOT / "jp" / "health-v2" / "index.html").read_text(encoding="utf-8")
         self.assertIn('class="sensor-story integrated-hero"', html)
         self.assertIn('data-sensor-scene data-analytics-section="hero"', html)
         self.assertIn('class="integrated-hero-copy"', html)
@@ -263,7 +273,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertIn('class="measurement-panel"', html)
 
     def test_health_shares_product_foundations_without_point_rewards(self):
-        html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
+        html = (ROOT / "jp" / "health-v2" / "index.html").read_text(encoding="utf-8")
         self.assertIn('<header class="site-header">', html)
         self.assertIn('data-floating-cta', html)
         self.assertIn('data-cta-position="sticky"', html)
