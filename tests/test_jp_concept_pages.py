@@ -62,7 +62,7 @@ class JapaneseConceptPagesTest(unittest.TestCase):
             "lang": "ja",
             "cta": "https://go.ododok.app/7ueukr",
             "cta_count": 2,
-            "headline": "いま、何回噛んだっけ？",
+            "headline": "自分の「食べ方」に、",
             "copy": "早食いが気になる理由。",
             "images": {
                 "../assets/daram-spoon.png",
@@ -77,15 +77,18 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         },
     }
 
-    def test_health_v2_is_published_separately_from_the_legacy_health_page(self):
-        legacy = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
+    def test_health_v2_is_published_to_the_canonical_health_endpoint(self):
+        canonical = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
         v2 = (ROOT / "jp" / "health-v2" / "index.html").read_text(encoding="utf-8")
 
-        self.assertIn("いま、何回噛んだっけ？", legacy)
-        self.assertNotIn("自分の「食べ方」に、", legacy)
+        self.assertIn("自分の「食べ方」に、", canonical)
+        self.assertIn('concept: "health"', canonical)
+        self.assertIn('trackAmplitude("jp_landing_viewed"', canonical)
+        self.assertIn('window.clarity("event",eventName)', canonical)
+        self.assertIn("fbq('track','PageView')", canonical)
         self.assertIn("自分の「食べ方」に、", v2)
         self.assertIn("食べるペースを、", v2)
-        self.assertNotEqual(legacy, v2)
+        self.assertEqual(canonical, v2)
 
     def test_each_concept_has_a_mobile_japanese_page_and_only_its_cta(self):
         """Catches a missing route, crossed CTA, or non-mobile/non-Japanese page."""
