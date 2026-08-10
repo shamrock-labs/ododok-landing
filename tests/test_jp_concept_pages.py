@@ -90,6 +90,14 @@ class JapaneseConceptPagesTest(unittest.TestCase):
         self.assertIn("食べるペースを、", v2)
         self.assertEqual(canonical, v2)
 
+    def test_health_tracks_the_five_outreach_email_tracks_in_amplitude_and_clarity(self):
+        html = (ROOT / "jp" / "health" / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn('const allowedOutreachTracks=new Set(["a","b","c","d","e"])', html)
+        self.assertIn('params.get("outreach_track")', html)
+        self.assertIn('outreach_track:outreachTrack', html)
+        self.assertIn('...attribution,outreach_track:outreachTrack', html)
+
     def test_each_concept_has_a_mobile_japanese_page_and_only_its_cta(self):
         """Catches a missing route, crossed CTA, or non-mobile/non-Japanese page."""
         for concept, expected in self.CASES.items():
